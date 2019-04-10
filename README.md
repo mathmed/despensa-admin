@@ -1,2 +1,2 @@
 # despensa-admin
-Software de controle de despensa em desenvolvimento para cadeira de Engenharia de Software II pela UFRN
+Software de controle de despensa em desenvolvimento para disciplina de Engenharia de Software II pela UFRN
