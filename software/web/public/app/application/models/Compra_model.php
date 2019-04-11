@@ -8,7 +8,7 @@ class Compra_model extends CI_model{
     public $fornecedor_uid;
 
 
-    public function __constructor($dados = NULL){
+    public function __construct($dados = NULL){
         $this->uid = $dados["uid"] ? $dados["uid"]: NULL;
         $this->data = $dados["data"] ? $dados["data"]: NULL;
         $this->fornecedor_uid = $dados["fornecedor_uid"] ? $dados["fornecedor_uid"]: NULL;

@@ -7,7 +7,7 @@ class Grupo_model extends CI_controller{
     public $nome;
     public $criado_em;
 
-    public function __constructor($dados = NULL){
+    public function __construct($dados = NULL){
         $this->uid = $dados["uid"] ? $dados["uid"] : NULL;
         $this->nome = $dados["nome"] ? $dados["nome"] : NULL;
         $this->criado_em = $dados["criado_em"] ? $dados["criado_em"] : NULL;

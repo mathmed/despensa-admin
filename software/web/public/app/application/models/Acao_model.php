@@ -11,7 +11,7 @@ class Acao_model extends CI_Model {
     public $uid_usuario;
 
 
-    public function __constructor($dados = NULL){
+    public function __construct($dados = NULL){
 
         $this->uid = $dados["uid"] ? $dados["uid"] : NULL;
         $this->acao = $dados["acao"] ? $dados["acao"] : NULL;

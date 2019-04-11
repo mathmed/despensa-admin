@@ -8,7 +8,7 @@ class Categoria_model extends CI_model{
     public $validade_media;
     public $tipo_medida;
 
-    public function __constructor($dados = NULL){
+    public function __construct($dados = NULL){
         $this->uid = $dados["uid"] ? $dados["uid"]: NULL;
         $this->descricao = $dados["descricao"] ? $dados["descricao"]: NULL;
         $this->validade_media = $dados["validade_media"] ? $dados["validade_media"]: NULL;
