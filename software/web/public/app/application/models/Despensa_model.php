@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Despensa_model extends CI_controller{
+class Despensa_model extends CI_Model{
     public $uid;
     public $descricao;
     public $criada_em;

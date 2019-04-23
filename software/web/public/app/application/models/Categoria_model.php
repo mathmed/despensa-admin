@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Categoria_model extends CI_model{
+class Categoria_model extends CI_Model{
     public $uid;
     public $descricao;
     public $validade_media;

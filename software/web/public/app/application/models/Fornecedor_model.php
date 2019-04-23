@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Fornecedor_model extends CI_controller{
+class Fornecedor_model extends CI_Model{
     public $uid;
     public $descricao;
     
