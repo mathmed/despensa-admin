@@ -28,7 +28,8 @@ class Despensa extends CI_Controller {
 	}
 
 	public function listar_despensa(){
-		$this->despensa_business->listar_despensa();
+		$form = $this->obj;
+		$this->despensa_business->listar_despensa($form);
 	}
 
 	public function atualizar_despensa(){

@@ -17,7 +17,7 @@ class Despensa_business extends MY_Business{
             }
             else{
                 $exist = false;
-                $descricoes = $this->despensa_dao->get_despensa([["campo"=>"descricao", "valor"=>$form->descricao]]);
+                $descricoes = $this->despensa_dao->get_despensa([["campo"=>"descricao", "valor"=>$form->descricao], ["campo" => "usuario_tem_despensa.uid_usuario", "valor" => $id_usuario]]);
                 foreach($descricoes as $descricao){
                     if($descricao->descricao == $form->descricao)
                         $exist = true;
@@ -40,9 +40,9 @@ class Despensa_business extends MY_Business{
         }
     }
 
-    public function listar_despensa(){
-        $resultado = $this->despensa_dao->get_despensa();
-        print_r($resultado);
+    public function listar_despensa($form){
+        $resultado = $this->despensa_dao->get_despensa([["campo" => "usuario_tem_despensa.uid_usuario", "valor" => $form["uid_usuario"]]]);
+        echo json_encode($resultado);
     }
     
 
