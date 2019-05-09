@@ -8,18 +8,14 @@ class Usuario_model extends CI_Model{
     public $email;
     public $usuario;
     public $senha;
-    public $nascimento;
-    public $uid_compra;
-    public $uid_categoria; 
+
 
     public function __construct($dados = NULL){
-        $this->uid = $dados["uid"] ? $dados["uid"] : NULL;
-        $this->nome = $dados["nome"] ? $dados["nome"] : NULL;
-        $this->email = $dados["email"] ? $dados["email"] : NULL;
-        $this->usuario = $dados["usuario"] ? $dados["usuario"] : NULL;
-        $this->senha = $dados["senha"] ? $dados["senha"] : NULL;
-        $this->nascimento = $dados["nascimento"] ? $dados["nascimento"] : NULL;
-
+        $this->uid = isset($dados["uid"]) ? $dados["uid"] : NULL;
+        $this->nome = isset($dados["nome"]) ? $dados["nome"] : NULL;
+        $this->email = isset($dados["email"]) ? $dados["email"] : NULL;
+        $this->usuario = isset($dados["usuario"]) ? $dados["usuario"] : NULL;
+        $this->senha = isset($dados["senha"]) ? $dados["senha"] : NULL;
     }
 
     public function get_uid(){
@@ -61,15 +57,6 @@ class Usuario_model extends CI_Model{
     public function set_senha($senha = NULL){
         $this->senha = $senha;
     }
-
-    public function get_nascimento(){
-        return $this->nascimento;
-    }
-
-    public function set_nascimento($nascimento = NULL){
-        $this->nascimento = $nascimento;
-    }
-
    
 }
 
