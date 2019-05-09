@@ -8,9 +8,9 @@ class Despensa_model extends CI_Model{
     public $criada_em;
 
     public function __construct($dados = NULL){
-        $this->uid = $dados["uid"] ? $dados["uid"] : NULL;
-        $this->descricao = $dados["descricao"] ? $dados["descricao"] : NULL;
-        $this->criada_em = $dados["criada_em"] ? $dados["criada_em"] : NULL;
+        $this->uid = isset($dados["uid"]) ? $dados["uid"] : NULL;
+        $this->descricao = isset($dados["descricao"]) ? $dados["descricao"] : NULL;
+        $this->criada_em = isset($dados["criada_em"]) ? $dados["criada_em"] : NULL;
     }
 
     public function get_uid(){

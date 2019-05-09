@@ -8,9 +8,9 @@ class Grupo_model extends CI_Model{
     public $criado_em;
 
     public function __construct($dados = NULL){
-        $this->uid = $dados["uid"] ? $dados["uid"] : NULL;
-        $this->nome = $dados["nome"] ? $dados["nome"] : NULL;
-        $this->criado_em = $dados["criado_em"] ? $dados["criado_em"] : NULL;
+        $this->uid = isset($dados["uid"]) ? $dados["uid"] : NULL;
+        $this->nome = isset($dados["nome"]) ? $dados["nome"] : NULL;
+        $this->criado_em = isset($dados["criado_em"]) ? $dados["criado_em"] : NULL;
     }
 
     public function get_uid(){

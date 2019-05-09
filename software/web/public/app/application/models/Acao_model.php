@@ -13,11 +13,11 @@ class Acao_model extends CI_Model {
 
     public function __construct($dados = NULL){
 
-        $this->uid = $dados["uid"] ? $dados["uid"] : NULL;
-        $this->acao = $dados["acao"] ? $dados["acao"] : NULL;
-        $this->data_acao = $dados["data_acao"] ? $dados["data_acao"] : NULL;
-        $this->uid_grupo = $dados["uid_grupo"] ? $dados["uid_grupo"] : NULL;
-        $this->uid_usuario = $dados["uid_usuario"] ? $dados["uid_usuario"] : NULL;
+        $this->uid = isset($dados["uid"]) ? $dados["uid"] : NULL;
+        $this->acao = isset($dados["acao"]) ? $dados["acao"] : NULL;
+        $this->data_acao = isset($dados["data_acao"]) ? $dados["data_acao"] : NULL;
+        $this->uid_grupo = isset($dados["uid_grupo"]) ? $dados["uid_grupo"] : NULL;
+        $this->uid_usuario = isset($dados["uid_usuario"]) ? $dados["uid_usuario"] : NULL;
     }
 
 

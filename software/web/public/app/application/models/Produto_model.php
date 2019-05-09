@@ -13,14 +13,14 @@ class Produto_model extends CI_Model{
     public $uid_categoria; 
 
     public function __construct($dados = NULL){
-        $this->uid = $dados["uid"] ? $dados["uid"] : NULL;
-        $this->nome = $dados["nome"] ? $dados["nome"] : NULL;
-        $this->status_ = $dados["status_"] ? $dados["status_"] : NULL;
-        $this->preco = $dados["preco"] ? $dados["preco"] : NULL;
-        $this->aberto_em = $dados["aberto_em"] ? $dados["aberto_em"] : NULL;
-        $this->uid_dispensa = $dados["uid_dispensa"] ? $dados["uid_dispensa"] : NULL;
-        $this->uid_compra = $dados["uid_compra"] ? $dados["uid_compra"] : NULL;
-        $this->uid_categoria = $dados["uid_categoria"] ? $dados["uid_categoria"] : NULL;
+        $this->uid = isset($dados["uid"]) ? $dados["uid"] : NULL;
+        $this->nome = isset($dados["nome"]) ? $dados["nome"] : NULL;
+        $this->status_ = isset($dados["status_"]) ? $dados["status_"] : NULL;
+        $this->preco = isset($dados["preco"]) ? $dados["preco"] : NULL;
+        $this->aberto_em = isset($dados["aberto_em"]) ? $dados["aberto_em"] : NULL;
+        $this->uid_dispensa = isset($dados["uid_dispensa"]) ? $dados["uid_dispensa"] : NULL;
+        $this->uid_compra = isset($dados["uid_compra"]) ? $dados["uid_compra"] : NULL;
+        $this->uid_categoria = isset($dados["uid_categoria"]) ? $dados["uid_categoria"] : NULL;
 
     }
 

@@ -8,8 +8,8 @@ class Fornecedor_model extends CI_Model{
     
 
     public function __construct($dados = NULL){
-        $this->uid = $dados["uid"] ? $dados["uid"] : NULL;
-        $this->descricao = $dados["descricao"] ? $dados["descricao"] : NULL;
+        $this->uid = isset($dados["uid"]) ? $dados["uid"] : NULL;
+        $this->descricao = isset($dados["descricao"]) ? $dados["descricao"] : NULL;
         
     }
 

@@ -9,10 +9,10 @@ class Categoria_model extends CI_Model{
     public $tipo_medida;
 
     public function __construct($dados = NULL){
-        $this->uid = $dados["uid"] ? $dados["uid"]: NULL;
-        $this->descricao = $dados["descricao"] ? $dados["descricao"]: NULL;
-        $this->validade_media = $dados["validade_media"] ? $dados["validade_media"]: NULL;
-        $this->uid = $dados["tipo_medida"] ? $dados["tipo_medida"]: NULL;
+        $this->uid = isset($dados["uid"]) ? $dados["uid"]: NULL;
+        $this->descricao = isset($dados["descricao"]) ? $dados["descricao"]: NULL;
+        $this->validade_media = isset($dados["validade_media"]) ? $dados["validade_media"]: NULL;
+        $this->uid = isset($dados["tipo_medida"]) ? $dados["tipo_medida"]: NULL;
 
     }
 
