@@ -36,7 +36,7 @@ class Categoria_model extends CI_Model{
         return $this->validade_media;
     }
 
-    public function set_validade_media($uid = NULL){
+    public function set_validade_media($validade_media = NULL){
         $this->validade_media = $validade_media;
     }
 

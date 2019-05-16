@@ -42,7 +42,7 @@ class Produto_model extends CI_Model{
     }
 
     public function set_nome($nome = NULL){
-        $this->nome = $descricao;
+        $this->nome = $nome;
     }
 
     public function get_status_(){
