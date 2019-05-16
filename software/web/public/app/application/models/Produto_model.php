@@ -8,7 +8,7 @@ class Produto_model extends CI_Model{
     public $status_;
     public $preco;
     public $aberto_em;
-    public $uid_dispensa;
+    public $uid_despensa;
     public $uid_compra;
     public $uid_categoria; 
 
@@ -18,7 +18,7 @@ class Produto_model extends CI_Model{
         $this->status_ = isset($dados["status_"]) ? $dados["status_"] : NULL;
         $this->preco = isset($dados["preco"]) ? $dados["preco"] : NULL;
         $this->aberto_em = isset($dados["aberto_em"]) ? $dados["aberto_em"] : NULL;
-        $this->uid_dispensa = isset($dados["uid_dispensa"]) ? $dados["uid_dispensa"] : NULL;
+        $this->uid_despensa = isset($dados["uid_despensa"]) ? $dados["uid_despensa"] : NULL;
         $this->uid_compra = isset($dados["uid_compra"]) ? $dados["uid_compra"] : NULL;
         $this->uid_categoria = isset($dados["uid_categoria"]) ? $dados["uid_categoria"] : NULL;
 
@@ -64,12 +64,12 @@ class Produto_model extends CI_Model{
         $this->aberto_em = $aberto_em;
     }
 
-    public function get_uid_dispensa(){
-        return $this->uid_dispensa;
+    public function get_uid_despensa(){
+        return $this->uid_despensa;
     }
 
-    public function set_uid_dispensa($uid_dispensa = NULL){
-        $this->uid_dispensa = $uid_dispensa;
+    public function set_uid_despensa($uid_despensa = NULL){
+        $this->uid_despensa = $uid_despensa;
     }
 
     public function get_uid_compra(){

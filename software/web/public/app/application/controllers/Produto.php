@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 
 
@@ -10,7 +10,15 @@ class Produto extends CI_Controller {
 		/* Carregando serviços necessários */
 		parent::__construct();
 		$this->json = file_get_contents('php://input');
-        $this->obj = json_decode($this->json,true);
+		$this->obj = json_decode($this->json,true);
+		$this->load->business("produto_business");
+	}
+
+	public function cadastrar_produto(){
+		$dados = $this->obj;
+		$this->load->model("produto_model");
+		$this->produto_model->__construct($dados);
+		$this->produto_business->cadastrar_produto($this->produto_model);
 	}
 
 }
