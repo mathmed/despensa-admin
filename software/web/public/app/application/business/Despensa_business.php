@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 class Despensa_business extends MY_Business{
     public function __construct(){
@@ -9,11 +9,11 @@ class Despensa_business extends MY_Business{
     }
  
 
-    public function cadastrar_despensa($form = null, $id_usuario){
+    public function cadastrar_despensa($id_usuario, $form = null){
 
         if($form){
             if (empty($form->descricao)) {
-                echo(json_encode("error"));
+                echo json_encode("error");
             }
             else{
                 $exist = false;
@@ -24,9 +24,9 @@ class Despensa_business extends MY_Business{
                 }
                 if(!$exist){
                     $this->despensa_dao->insert_despensa($form, $id_usuario);
-                    echo(json_encode("sucesso"));
+                    echo json_encode("sucesso");
                 }else {
-                    echo(json_encode("error"));
+                    echo json_encode("error");
                 } 
             }  
         }
@@ -49,15 +49,16 @@ class Despensa_business extends MY_Business{
     public function atualizar_despensa($dados){
         if($dados){
             $exist = false;
-            $descricoes = $this->despensa_dao->get_despensa([["campo"=>"descricao", "valor"=>$form->descricao]]);
+            $descricoes = $this->despensa_dao->get_despensa([["campo"=>"descricao", "valor"=>$dados->descricao]]);
             foreach($descricoes as $descricao){
-                if($descricao->descricao == $dados->descricao)
+                if($descricao->descricao == $dados->descricao){
                     $exist = true;
+                }
             }
             if(!$exist){
                 $this->despensa_dao->update_despensa($dados);
-                echo(json_encode("sucesso"));
-            }else echo(json_encode("error"));
+                echo json_encode("sucesso");
+            }else echo json_encode("error");
         }
     }
 }
