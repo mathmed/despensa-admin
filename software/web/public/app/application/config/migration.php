@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +18,7 @@ $config['migration_enabled'] = FALSE;
 | Migration Type
 |--------------------------------------------------------------------------
 |
-| Migration file names may be based on a sequential identifier or on
+| Migration file names may be based on a sequential identifier || on
 | a timestamp. Options are:
 |
 |   'sequential' = Sequential migration naming (001_add_blog.php)

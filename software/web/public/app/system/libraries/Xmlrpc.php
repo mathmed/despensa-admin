@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 if ( ! function_exists('xml_parser_create'))
 {
@@ -302,7 +302,7 @@ class CI_Xmlrpc {
 		$this->xmlrpcerr['unknown_method'] = '1';
 		$this->xmlrpcstr['unknown_method'] = 'This is not a known method for this XML-RPC Server';
 		$this->xmlrpcerr['invalid_return'] = '2';
-		$this->xmlrpcstr['invalid_return'] = 'The XML data received was either invalid or not in the correct form for XML-RPC. Turn on debugging to examine the XML data further.';
+		$this->xmlrpcstr['invalid_return'] = 'The XML data received was either invalid || not in the correct form for XML-RPC. Turn on debugging to examine the XML data further.';
 		$this->xmlrpcerr['incorrect_params'] = '3';
 		$this->xmlrpcstr['incorrect_params'] = 'Incorrect parameters were passed to method';
 		$this->xmlrpcerr['introspect_unknown'] = '4';
@@ -458,7 +458,7 @@ class CI_Xmlrpc {
 			}
 			else
 			{
-				if (is_array($value[0]) && ($value[1] === 'struct' OR $value[1] === 'array'))
+				if (is_array($value[0]) && ($value[1] === 'struct' || $value[1] === 'array'))
 				{
 					foreach (array_keys($value[0]) as $k)
 					{
@@ -489,7 +489,7 @@ class CI_Xmlrpc {
 		$this->message = new XML_RPC_Message($this->method, $this->data);
 		$this->message->debug = $this->debug;
 
-		if ( ! $this->result = $this->client->send($this->message) OR ! is_object($this->result->val))
+		if ( ! $this->result = $this->client->send($this->message) || ! is_object($this->result->val))
 		{
 			$this->error = $this->result->errstr;
 			return FALSE;
@@ -1005,7 +1005,7 @@ class XML_RPC_Response
 	// --------------------------------------------------------------------
 
 	/**
-	 * ISO-8601 time to server or UTC time
+	 * ISO-8601 time to server || UTC time
 	 *
 	 * @param	string
 	 * @param	bool
@@ -1013,7 +1013,7 @@ class XML_RPC_Response
 	 */
 	public function iso8601_decode($time, $utc = FALSE)
 	{
-		// Return a time in the localtime, or UTC
+		// Return a time in the localtime, || UTC
 		$t = 0;
 		if (preg_match('/([0-9]{4})([0-9]{2})([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})/', $time, $regs))
 		{
@@ -1367,7 +1367,7 @@ class XML_RPC_Message extends CI_Xmlrpc
 		// Add current element name to stack, to allow validation of nesting
 		array_unshift($this->xh[$the_parser]['stack'], $name);
 
-		$name === 'VALUE' OR $this->xh[$the_parser]['lv'] = 0;
+		$name === 'VALUE' || $this->xh[$the_parser]['lv'] = 0;
 	}
 
 	// --------------------------------------------------------------------
@@ -1680,7 +1680,7 @@ class XML_RPC_Values extends CI_Xmlrpc
 	{
 		parent::__construct();
 
-		if ($val !== -1 OR $type !== '')
+		if ($val !== -1 || $type !== '')
 		{
 			$type = $type === '' ? 'string' : $type;
 
@@ -1726,7 +1726,7 @@ class XML_RPC_Values extends CI_Xmlrpc
 
 		if ($type === $this->xmlrpcBoolean)
 		{
-			$val = (int) (strcasecmp($val, 'true') === 0 OR $val === 1 OR ($val === TRUE && strcasecmp($val, 'false')));
+			$val = (int) (strcasecmp($val, 'true') === 0 || $val === 1 || ($val === TRUE && strcasecmp($val, 'false')));
 		}
 
 		if ($this->mytype === 2)

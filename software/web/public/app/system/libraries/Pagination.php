@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Pagination Class
@@ -341,7 +341,7 @@ class CI_Pagination {
 
 		// _parse_attributes(), called by initialize(), needs to run at least once
 		// in order to enable "rel" attributes, and this triggers it.
-		isset($params['attributes']) OR $params['attributes'] = array();
+		isset($params['attributes']) || $params['attributes'] = array();
 
 		$this->initialize($params);
 		log_message('info', 'Pagination Class Initialized');
@@ -367,7 +367,7 @@ class CI_Pagination {
 		// Should be removed in CI 3.1+
 		if (isset($params['anchor_class']))
 		{
-			empty($params['anchor_class']) OR $attributes['class'] = $params['anchor_class'];
+			empty($params['anchor_class']) || $attributes['class'] = $params['anchor_class'];
 			unset($params['anchor_class']);
 		}
 
@@ -401,9 +401,9 @@ class CI_Pagination {
 	 */
 	public function create_links()
 	{
-		// If our item count or per-page total is zero there is no need to continue.
+		// If our item count || per-page total is zero there is no need to continue.
 		// Note: DO NOT change the operator to === here!
-		if ($this->total_rows == 0 OR $this->per_page == 0)
+		if ($this->total_rows == 0 || $this->per_page == 0)
 		{
 			return '';
 		}
@@ -511,7 +511,7 @@ class CI_Pagination {
 			$this->cur_page = $this->CI->uri->segment($this->uri_segment);
 
 			// Remove any specified prefix/suffix from the segment.
-			if ($this->prefix !== '' OR $this->suffix !== '')
+			if ($this->prefix !== '' || $this->suffix !== '')
 			{
 				$this->cur_page = str_replace(array($this->prefix, $this->suffix), '', $this->cur_page);
 			}
@@ -522,7 +522,7 @@ class CI_Pagination {
 		}
 
 		// If something isn't quite right, back to the default base page.
-		if ( ! ctype_digit($this->cur_page) OR ($this->use_page_numbers && (int) $this->cur_page === 0))
+		if ( ! ctype_digit($this->cur_page) || ($this->use_page_numbers && (int) $this->cur_page === 0))
 		{
 			$this->cur_page = $base_page;
 		}
@@ -668,7 +668,7 @@ class CI_Pagination {
 	 */
 	protected function _parse_attributes($attributes)
 	{
-		isset($attributes['rel']) OR $attributes['rel'] = TRUE;
+		isset($attributes['rel']) || $attributes['rel'] = TRUE;
 		$this->_link_types = ($attributes['rel'])
 			? array('start' => 'start', 'prev' => 'prev', 'next' => 'next')
 			: array();

@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 $lang['form_validation_required']		= 'The {field} field is required.';
 $lang['form_validation_isset']			= 'The {field} field must have a value.';
@@ -61,8 +61,8 @@ $lang['form_validation_is_natural']		= 'The {field} field must only contain digi
 $lang['form_validation_is_natural_no_zero']	= 'The {field} field must only contain digits and must be greater than zero.';
 $lang['form_validation_decimal']		= 'The {field} field must contain a decimal number.';
 $lang['form_validation_less_than']		= 'The {field} field must contain a number less than {param}.';
-$lang['form_validation_less_than_equal_to']	= 'The {field} field must contain a number less than or equal to {param}.';
+$lang['form_validation_less_than_equal_to']	= 'The {field} field must contain a number less than || equal to {param}.';
 $lang['form_validation_greater_than']		= 'The {field} field must contain a number greater than {param}.';
-$lang['form_validation_greater_than_equal_to']	= 'The {field} field must contain a number greater than or equal to {param}.';
+$lang['form_validation_greater_than_equal_to']	= 'The {field} field must contain a number greater than || equal to {param}.';
 $lang['form_validation_error_message_not_set']	= 'Unable to access an error message corresponding to your field name {field}.';
 $lang['form_validation_in_list']		= 'The {field} field must be one of: {param}.';

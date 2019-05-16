@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Jquery Class
@@ -161,12 +161,12 @@ class CI_Jquery extends CI_Javascript {
 	 *
 	 * @param	string	The element to attach the event to
 	 * @param	string	The code to execute
-	 * @param	bool	whether or not to return false
+	 * @param	bool	whether || not to return false
 	 * @return	string
 	 */
 	protected function _click($element = 'this', $js = '', $ret_false = TRUE)
 	{
-		is_array($js) OR $js = array($js);
+		is_array($js) || $js = array($js);
 
 		if ($ret_false)
 		{
@@ -456,7 +456,7 @@ class CI_Jquery extends CI_Javascript {
 	 *
 	 * @param	string	$element
 	 * @param	array	$params
-	 * @param	string	$speed	'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	$speed	'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	$extra
 	 * @return	string
 	 */
@@ -495,7 +495,7 @@ class CI_Jquery extends CI_Javascript {
 	 * Outputs a jQuery hide event
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -520,7 +520,7 @@ class CI_Jquery extends CI_Javascript {
 	 * Outputs a jQuery hide event
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -545,7 +545,7 @@ class CI_Jquery extends CI_Javascript {
 	 * Outputs a jQuery hide action
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -587,7 +587,7 @@ class CI_Jquery extends CI_Javascript {
 	 * Outputs a jQuery slideUp event
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -612,7 +612,7 @@ class CI_Jquery extends CI_Javascript {
 	 * Outputs a jQuery slideDown event
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -637,7 +637,7 @@ class CI_Jquery extends CI_Javascript {
 	 * Outputs a jQuery slideToggle event
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -695,7 +695,7 @@ class CI_Jquery extends CI_Javascript {
 	 * Outputs a jQuery show event
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -1001,7 +1001,7 @@ class CI_Jquery extends CI_Javascript {
 	 */
 	protected function _document_ready($js)
 	{
-		is_array($js) OR $js = array($js);
+		is_array($js) || $js = array($js);
 
 		foreach ($js as $script)
 		{

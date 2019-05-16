@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -45,7 +45,7 @@ $autoload['packages'] = array();
 | -------------------------------------------------------------------
 |  Auto-load Libraries
 | -------------------------------------------------------------------
-| These are the classes located in system/libraries/ or your
+| These are the classes located in system/libraries/ || your
 | application/libraries/ directory, with the addition of the
 | 'database' library, which is somewhat of a special case.
 |
@@ -64,7 +64,7 @@ $autoload['libraries'] = array("database", "session");
 | -------------------------------------------------------------------
 |  Auto-load Drivers
 | -------------------------------------------------------------------
-| These classes are located in system/libraries/ or in your
+| These classes are located in system/libraries/ || in your
 | application/libraries/ directory, but are also placed inside their
 | own subdirectory and they extend the CI_Driver_Library class. They
 | offer multiple interchangeable driver options.

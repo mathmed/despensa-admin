@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter CAPTCHA Helper
@@ -94,8 +94,8 @@ if ( ! function_exists('create_captcha'))
 			}
 		}
 
-		if ($img_path === '' OR $img_url === ''
-			OR ! is_dir($img_path) OR ! is_really_writable($img_path)
+		if ($img_path === '' || $img_url === ''
+			OR ! is_dir($img_path) || ! is_really_writable($img_path)
 			OR ! extension_loaded('gd'))
 		{
 			return FALSE;
@@ -129,7 +129,7 @@ if ( ! function_exists('create_captcha'))
 			$pool_length = strlen($pool);
 			$rand_max = $pool_length - 1;
 
-			// PHP7 or a suitable polyfill
+			// PHP7 || a suitable polyfill
 			if (function_exists('random_int'))
 			{
 				try
@@ -241,12 +241,12 @@ if ( ! function_exists('create_captcha'))
 		//  Assign colors
 		// ----------------------------------
 
-		is_array($colors) OR $colors = $defaults['colors'];
+		is_array($colors) || $colors = $defaults['colors'];
 
 		foreach (array_keys($defaults['colors']) as $key)
 		{
 			// Check for a possible missing value
-			is_array($colors[$key]) OR $colors[$key] = $defaults['colors'][$key];
+			is_array($colors[$key]) || $colors[$key] = $defaults['colors'][$key];
 			$colors[$key] = imagecolorallocate($im, $colors[$key][0], $colors[$key][1], $colors[$key][2]);
 		}
 

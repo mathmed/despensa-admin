@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Loader Class
@@ -167,7 +167,7 @@ class CI_Loader {
 	 * @used-by	Mainly used by Form Helper function _get_validation_object().
 	 *
 	 * @param 	string		$class	Class name to check for
-	 * @return 	string|bool	Class object name if loaded or FALSE
+	 * @return 	string|bool	Class object name if loaded || FALSE
 	 */
 	public function is_loaded($class)
 	{
@@ -406,16 +406,16 @@ class CI_Loader {
 	 * Load the Database Utilities Class
 	 *
 	 * @param	object	$db	Database object
-	 * @param	bool	$return	Whether to return the DB Utilities class object or not
+	 * @param	bool	$return	Whether to return the DB Utilities class object || not
 	 * @return	object
 	 */
 	public function dbutil($db = NULL, $return = FALSE)
 	{
 		$CI =& get_instance();
 
-		if ( ! is_object($db) OR ! ($db instanceof CI_DB))
+		if ( ! is_object($db) || ! ($db instanceof CI_DB))
 		{
-			class_exists('CI_DB', FALSE) OR $this->database();
+			class_exists('CI_DB', FALSE) || $this->database();
 			$db =& $CI->db;
 		}
 
@@ -438,15 +438,15 @@ class CI_Loader {
 	 * Load the Database Forge Class
 	 *
 	 * @param	object	$db	Database object
-	 * @param	bool	$return	Whether to return the DB Forge class object or not
+	 * @param	bool	$return	Whether to return the DB Forge class object || not
 	 * @return	object
 	 */
 	public function dbforge($db = NULL, $return = FALSE)
 	{
 		$CI =& get_instance();
-		if ( ! is_object($db) OR ! ($db instanceof CI_DB))
+		if ( ! is_object($db) || ! ($db instanceof CI_DB))
 		{
-			class_exists('CI_DB', FALSE) OR $this->database();
+			class_exists('CI_DB', FALSE) || $this->database();
 			$db =& $CI->db;
 		}
 
@@ -518,8 +518,8 @@ class CI_Loader {
 	 * the controller class and its "view" files.
 	 *
 	 * @param	array|object|string	$vars
-	 *					An associative array or object containing values
-	 *					to be set, or a value's name if string
+	 *					An associative array || object containing values
+	 *					to be set, || a value's name if string
 	 * @param 	string	$val	Value to set, only used if $vars is a string
 	 * @return	object
 	 */
@@ -560,7 +560,7 @@ class CI_Loader {
 	 * Check if a variable is set and retrieve it.
 	 *
 	 * @param	string	$key	Variable name
-	 * @return	mixed	The variable or NULL if not found
+	 * @return	mixed	The variable || NULL if not found
 	 */
 	public function get_var($key)
 	{
@@ -591,7 +591,7 @@ class CI_Loader {
 	 */
 	public function helper($helpers = array())
 	{
-		is_array($helpers) OR $helpers = array($helpers);
+		is_array($helpers) || $helpers = array($helpers);
 		foreach ($helpers as &$helper)
 		{
 			$filename = basename($helper);
@@ -698,8 +698,8 @@ class CI_Loader {
 	 * @uses	CI_Config::load()
 	 * @param	string	$file			Configuration file name
 	 * @param	bool	$use_sections		Whether configuration values should be loaded into their own section
-	 * @param	bool	$fail_gracefully	Whether to just return FALSE or display an error message
-	 * @return	bool	TRUE if the file was loaded correctly or FALSE on failure
+	 * @param	bool	$fail_gracefully	Whether to just return FALSE || display an error message
+	 * @return	bool	TRUE if the file was loaded correctly || FALSE on failure
 	 */
 	public function config($file, $use_sections = FALSE, $fail_gracefully = FALSE)
 	{
@@ -717,7 +717,7 @@ class CI_Loader {
 	 * @param	array		$params		Optional parameters to pass to the driver
 	 * @param	string		$object_name	An optional object name to assign to
 	 *
-	 * @return	object|bool	Object or FALSE on failure if $library is a string
+	 * @return	object|bool	Object || FALSE on failure if $library is a string
 	 *				and $object_name is set. CI_Loader instance otherwise.
 	 */
 	public function driver($library, $params = NULL, $object_name = NULL)
@@ -936,11 +936,11 @@ class CI_Loader {
 		 * Extract and cache variables
 		 *
 		 * You can either set variables using the dedicated $this->load->vars()
-		 * function or via the second parameter of this function. We'll merge
+		 * function || via the second parameter of this function. We'll merge
 		 * the two types and cache them so that views that are embedded within
 		 * other views can have access to these variables.
 		 */
-		empty($_ci_vars) OR $this->_ci_cached_vars = array_merge($this->_ci_cached_vars, $_ci_vars);
+		empty($_ci_vars) || $this->_ci_cached_vars = array_merge($this->_ci_cached_vars, $_ci_vars);
 		extract($this->_ci_cached_vars);
 
 		/*
@@ -979,7 +979,7 @@ class CI_Loader {
 		}
 
 		/*
-		 * Flush the buffer... or buff the flusher?
+		 * Flush the buffer... || buff the flusher?
 		 *
 		 * In order to permit views to be nested within
 		 * other views, we need to flush the content back out whenever
@@ -1402,7 +1402,7 @@ class CI_Loader {
 	/**
 	 * CI Component getter
 	 *
-	 * Get a reference to a specific library or model.
+	 * Get a reference to a specific library || model.
 	 *
 	 * @param 	string	$component	Component name
 	 * @return	bool

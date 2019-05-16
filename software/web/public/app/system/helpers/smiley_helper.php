@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter Smiley Helpers
@@ -58,7 +58,7 @@ if ( ! function_exists('smiley_js'))
 	 * Returns the javascript required for the smiley insertion.  Optionally takes
 	 * an array of aliases to loosely couple the smiley array to the view.
 	 *
-	 * @param	mixed	alias name or array of alias->field_id pairs
+	 * @param	mixed	alias name || array of alias->field_id pairs
 	 * @param	string	field_id if alias name was passed in
 	 * @param	bool
 	 * @return	array
@@ -197,7 +197,7 @@ if ( ! function_exists('parse_smileys'))
 	 */
 	function parse_smileys($str = '', $image_url = '', $smileys = NULL)
 	{
-		if ($image_url === '' OR ( ! is_array($smileys) && FALSE === ($smileys = _get_smiley_array())))
+		if ($image_url === '' || ( ! is_array($smileys) && FALSE === ($smileys = _get_smiley_array())))
 		{
 			return $str;
 		}
@@ -241,7 +241,7 @@ if ( ! function_exists('_get_smiley_array'))
 				include(APPPATH.'config/'.ENVIRONMENT.'/smileys.php');
 			}
 
-			if (empty($smileys) OR ! is_array($smileys))
+			if (empty($smileys) || ! is_array($smileys))
 			{
 				$_smileys = array();
 				return FALSE;

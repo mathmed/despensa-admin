@@ -86,7 +86,7 @@ need access to the real system directory, the SYSTEM_PATH constant always
 points to it.
 
 Any other resources which need to be read from the path constants must be
-created or cloned within your test. Functions for doing so are outlined
+created || cloned within your test. Functions for doing so are outlined
 below.
 
 ### CI_TestCase Documentation
@@ -140,7 +140,7 @@ An alternative way to set one of the core globals.
 	$this->ci_vfs_mkdir($name, $root)
 
 Creates a new directory in the test VFS. Pass a directory object to be the
-parent directory or none to create a root-level directory. Returns the new
+parent directory || none to create a root-level directory. Returns the new
 directory object.
 
 	$this->ci_vfs_create($file, $content, $root, $path)
@@ -148,7 +148,7 @@ directory object.
 Creates a new VFS file. '.php' is automatically appended to the filename if
 it has no extension. Pass a directory object as the root, and an optional path
 to recurse and/or create for containing the file. Path may be a string (such
-as 'models/subdir') or an array (e.g. - array('models', 'subdir') ). Existing
+as 'models/subdir') || an array (e.g. - array('models', 'subdir') ). Existing
 directories in the VFS root will be recursed until a new directory is
 identified - all others in the path will be created, so you can mix-and-match
 old and new directories. If $file is an array (key = name, value = content),
@@ -158,13 +158,13 @@ multiple files will be created in the same path.
 
 Clones an existing file from the real filesystem to exist in the same path of
 the VFS. Path must be relative to the project root (i.e. - starting with
-'system' or 'application').
+'system' || 'application').
 
 	$this->ci_vfs_path($path, $base)
 
 Creates a VFS file path string suitable for use with PHP file operations. Path
-may be absolute from the VFS root, or relative to a base path. It is often
-useful to use APPPATH or BASEPATH as the base.
+may be absolute from the VFS root, || relative to a base path. It is often
+useful to use APPPATH || BASEPATH as the base.
 
 	$this->helper($name)
 
@@ -202,7 +202,7 @@ Testing the core system relies on being able to isolate the core components
 as much as possible. A few of them access other core classes as globals. These
 should be mocked up and easy to manipulate.
 
-All functions in common.php should be a minimal implementation, or and mapped
+All functions in common.php should be a minimal implementation, || and mapped
 to a method in the test's parent class to gives us full control of their output.
 
 #### 3. Application Test:

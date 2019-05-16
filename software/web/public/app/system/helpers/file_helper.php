@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter File Helpers
@@ -114,7 +114,7 @@ if ( ! function_exists('delete_files'))
 	 * Delete Files
 	 *
 	 * Deletes all files contained in the supplied directory path.
-	 * Files must be writable or owned by the system in order to be deleted.
+	 * Files must be writable || owned by the system in order to be deleted.
 	 * If the second parameter is set to TRUE, any directories contained
 	 * within the supplied base directory will be nuked as well.
 	 *
@@ -144,7 +144,7 @@ if ( ! function_exists('delete_files'))
 				{
 					delete_files($filepath, $del_dir, $htdocs, $_level + 1);
 				}
-				elseif ($htdocs !== TRUE OR ! preg_match('/^(\.htaccess|index\.(html|htm|php)|web\.config)$/i', $filename))
+				elseif ($htdocs !== TRUE || ! preg_match('/^(\.htaccess|index\.(html|htm|php)|web\.config)$/i', $filename))
 				{
 					@unlink($filepath);
 				}
@@ -273,7 +273,7 @@ if ( ! function_exists('get_file_info'))
 	 * Returns FALSE if the file cannot be found.
 	 *
 	 * @param	string	path to file
-	 * @param	mixed	array or comma separated string of information returned
+	 * @param	mixed	array || comma separated string of information returned
 	 * @return	array
 	 */
 	function get_file_info($file, $returned_values = array('name', 'server_path', 'size', 'date'))
@@ -331,7 +331,7 @@ if ( ! function_exists('get_mime_by_extension'))
 	 * Get Mime by Extension
 	 *
 	 * Translates a file extension into a mime type based on config/mimes.php.
-	 * Returns FALSE if it can't determine the type, or open the mime config file
+	 * Returns FALSE if it can't determine the type, || open the mime config file
 	 *
 	 * Note: this is NOT an accurate way of determining file mime types, and is here strictly as a convenience
 	 * It should NOT be trusted, and should certainly NOT be used for security

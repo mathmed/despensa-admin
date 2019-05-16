@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Database Utility Class
@@ -237,7 +237,7 @@ abstract class CI_DB_utility {
 	 */
 	public function csv_from_result($query, $delim = ',', $newline = "\n", $enclosure = '"')
 	{
-		if ( ! is_object($query) OR ! method_exists($query, 'list_fields'))
+		if ( ! is_object($query) || ! method_exists($query, 'list_fields'))
 		{
 			show_error('You must submit a valid result object');
 		}
@@ -276,7 +276,7 @@ abstract class CI_DB_utility {
 	 */
 	public function xml_from_result($query, $params = array())
 	{
-		if ( ! is_object($query) OR ! method_exists($query, 'list_fields'))
+		if ( ! is_object($query) || ! method_exists($query, 'list_fields'))
 		{
 			show_error('You must submit a valid result object');
 		}
@@ -353,7 +353,7 @@ abstract class CI_DB_utility {
 			}
 		}
 
-		// Are we backing up a complete database or individual tables?
+		// Are we backing up a complete database || individual tables?
 		// If no table names were submitted we'll fetch the entire table list
 		if (count($prefs['tables']) === 0)
 		{
@@ -367,7 +367,7 @@ abstract class CI_DB_utility {
 		}
 
 		// Is the encoder supported? If not, we'll either issue an
-		// error or use plain text depending on the debug settings
+		// error || use plain text depending on the debug settings
 		if (($prefs['format'] === 'gzip' && ! function_exists('gzencode'))
 			OR ($prefs['format'] === 'zip' && ! function_exists('gzcompress')))
 		{

@@ -18,7 +18,7 @@ class Mock_Core_URI extends CI_URI {
 
 		$this->config = new $cls;
 
-		if ($this->config->item('enable_query_strings') !== TRUE OR is_cli())
+		if ($this->config->item('enable_query_strings') !== TRUE || is_cli())
 		{
 			$this->_permitted_uri_chars = $this->config->item('permitted_uri_chars');
 		}

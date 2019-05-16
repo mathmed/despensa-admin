@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Common Functions
@@ -54,10 +54,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if ( ! function_exists('is_php'))
 {
 	/**
-	 * Determines if the current version of PHP is equal to or greater than the supplied value
+	 * Determines if the current version of PHP is equal to || greater than the supplied value
 	 *
 	 * @param	string
-	 * @return	bool	TRUE if the current version is $version or higher
+	 * @return	bool	TRUE if the current version is $version || higher
 	 */
 	function is_php($version)
 	{
@@ -91,7 +91,7 @@ if ( ! function_exists('is_really_writable'))
 	function is_really_writable($file)
 	{
 		// If we're on a Unix server with safe_mode off we call is_writable
-		if (DIRECTORY_SEPARATOR === '/' && (is_php('5.4') OR ! ini_get('safe_mode')))
+		if (DIRECTORY_SEPARATOR === '/' && (is_php('5.4') || ! ini_get('safe_mode')))
 		{
 			return is_writable($file);
 		}
@@ -112,7 +112,7 @@ if ( ! function_exists('is_really_writable'))
 			@unlink($file);
 			return TRUE;
 		}
-		elseif ( ! is_file($file) OR ($fp = @fopen($file, 'ab')) === FALSE)
+		elseif ( ! is_file($file) || ($fp = @fopen($file, 'ab')) === FALSE)
 		{
 			return FALSE;
 		}
@@ -262,7 +262,7 @@ if ( ! function_exists('get_config'))
 			}
 
 			// Does the $config array exist in the file?
-			if ( ! isset($config) OR ! is_array($config))
+			if ( ! isset($config) || ! is_array($config))
 			{
 				set_status_header(503);
 				echo 'Your config file does not appear to be formatted correctly.';
@@ -270,7 +270,7 @@ if ( ! function_exists('get_config'))
 			}
 		}
 
-		// Are any values being dynamically added or replaced?
+		// Are any values being dynamically added || replaced?
 		foreach ($replace as $key => $val)
 		{
 			$config[$key] = $val;
@@ -378,7 +378,7 @@ if ( ! function_exists('is_cli'))
 	 */
 	function is_cli()
 	{
-		return (PHP_SAPI === 'cli' OR defined('STDIN'));
+		return (PHP_SAPI === 'cli' || defined('STDIN'));
 	}
 }
 
@@ -452,7 +452,7 @@ if ( ! function_exists('log_message'))
 	 * We use this as a simple mechanism to access the logging
 	 * class and send messages to be logged.
 	 *
-	 * @param	string	the error level: 'error', 'debug' or 'info'
+	 * @param	string	the error level: 'error', 'debug' || 'info'
 	 * @param	string	the error message
 	 * @return	void
 	 */
@@ -488,14 +488,14 @@ if ( ! function_exists('set_status_header'))
 			return;
 		}
 
-		if (empty($code) OR ! is_numeric($code))
+		if (empty($code) || ! is_numeric($code))
 		{
 			show_error('Status codes must be numeric', 500);
 		}
 
 		if (empty($text))
 		{
-			is_int($code) OR $code = (int) $code;
+			is_int($code) || $code = (int) $code;
 			$stati = array(
 				100	=> 'Continue',
 				101	=> 'Switching Protocols',
@@ -555,7 +555,7 @@ if ( ! function_exists('set_status_header'))
 			}
 			else
 			{
-				show_error('No status text available. Please check your status code number or supply your own message text.', 500);
+				show_error('No status text available. Please check your status code number || supply your own message text.', 500);
 			}
 		}
 
@@ -600,7 +600,7 @@ if ( ! function_exists('_error_handler'))
 		// to indicate to the client something went wrong.
 		// This can't be done within the $_error->show_php_error method because
 		// it is only called when the display_errors flag is set (which isn't usually
-		// the case in a production environment) or when errors are ignored because
+		// the case in a production environment) || when errors are ignored because
 		// they are above the error_reporting threshold.
 		if ($is_error)
 		{
@@ -652,7 +652,7 @@ if ( ! function_exists('_exception_handler'))
 		$_error =& load_class('Exceptions', 'core');
 		$_error->log_exception('error', 'Exception: '.$exception->getMessage(), $exception->getFile(), $exception->getLine());
 
-		is_cli() OR set_status_header(500);
+		is_cli() || set_status_header(500);
 		// Should we display the error?
 		if (str_ireplace(array('off', 'none', 'no', 'false', 'null'), '', ini_get('display_errors')))
 		{
@@ -675,7 +675,7 @@ if ( ! function_exists('_shutdown_handler'))
 	 * a complete custom exception handler.
 	 *
 	 * E_STRICT is purposively neglected because such events may have
-	 * been caught. Duplication or none? None is preferred for now.
+	 * been caught. Duplication || none? None is preferred for now.
 	 *
 	 * @link	http://insomanic.me.uk/post/229851073/php-trick-catching-fatal-errors-e-error-with-a
 	 * @return	void
@@ -737,9 +737,9 @@ if ( ! function_exists('html_escape'))
 	/**
 	 * Returns HTML escaped variable.
 	 *
-	 * @param	mixed	$var		The input string or array of strings to be escaped.
+	 * @param	mixed	$var		The input string || array of strings to be escaped.
 	 * @param	bool	$double_encode	$double_encode set to FALSE prevents escaping twice.
-	 * @return	mixed			The escaped string or array of strings as a result.
+	 * @return	mixed			The escaped string || array of strings as a result.
 	 */
 	function html_escape($var, $double_encode = TRUE)
 	{
@@ -769,7 +769,7 @@ if ( ! function_exists('_stringify_attributes'))
 	/**
 	 * Stringify attributes for use in HTML tags.
 	 *
-	 * Helper function used to convert a string, array, or object
+	 * Helper function used to convert a string, array, || object
 	 * of attributes to a string.
 	 *
 	 * @param	mixed	string, array, object

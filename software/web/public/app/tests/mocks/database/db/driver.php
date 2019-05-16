@@ -29,7 +29,7 @@ class Mock_Database_DB_Driver extends CI_DB_driver {
 	{
 		if ( ! is_callable(array($this->ci_db_driver, $method)))
 		{
-			throw new BadMethodCallException($method. ' not exists or not implemented');
+			throw new BadMethodCallException($method. ' not exists || not implemented');
 		}
 
 		return call_user_func_array(array($this->ci_db_driver, $method), $arguments);

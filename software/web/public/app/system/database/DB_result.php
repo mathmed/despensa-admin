@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Database Result Class
@@ -150,7 +150,7 @@ class CI_DB_result {
 	/**
 	 * Query result. Acts as a wrapper function for the following functions.
 	 *
-	 * @param	string	$type	'object', 'array' or a custom class name
+	 * @param	string	$type	'object', 'array' || a custom class name
 	 * @return	array
 	 */
 	public function result($type = 'object')
@@ -181,7 +181,7 @@ class CI_DB_result {
 		{
 			return $this->custom_result_object[$class_name];
 		}
-		elseif ( ! $this->result_id OR $this->num_rows === 0)
+		elseif ( ! $this->result_id || $this->num_rows === 0)
 		{
 			return array();
 		}
@@ -212,7 +212,7 @@ class CI_DB_result {
 			return $this->custom_result_object[$class_name];
 		}
 
-		is_null($this->row_data) OR $this->data_seek(0);
+		is_null($this->row_data) || $this->data_seek(0);
 		$this->custom_result_object[$class_name] = array();
 
 		while ($row = $this->_fetch_object($class_name))
@@ -240,7 +240,7 @@ class CI_DB_result {
 		// In the event that query caching is on, the result_id variable
 		// will not be a valid resource so we'll simply return an empty
 		// array.
-		if ( ! $this->result_id OR $this->num_rows === 0)
+		if ( ! $this->result_id || $this->num_rows === 0)
 		{
 			return array();
 		}
@@ -255,7 +255,7 @@ class CI_DB_result {
 			return $this->result_object;
 		}
 
-		is_null($this->row_data) OR $this->data_seek(0);
+		is_null($this->row_data) || $this->data_seek(0);
 		while ($row = $this->_fetch_object())
 		{
 			$this->result_object[] = $row;
@@ -281,7 +281,7 @@ class CI_DB_result {
 		// In the event that query caching is on, the result_id variable
 		// will not be a valid resource so we'll simply return an empty
 		// array.
-		if ( ! $this->result_id OR $this->num_rows === 0)
+		if ( ! $this->result_id || $this->num_rows === 0)
 		{
 			return array();
 		}
@@ -296,7 +296,7 @@ class CI_DB_result {
 			return $this->result_array;
 		}
 
-		is_null($this->row_data) OR $this->data_seek(0);
+		is_null($this->row_data) || $this->data_seek(0);
 		while ($row = $this->_fetch_assoc())
 		{
 			$this->result_array[] = $row;
@@ -313,7 +313,7 @@ class CI_DB_result {
 	 * A wrapper method.
 	 *
 	 * @param	mixed	$n
-	 * @param	string	$type	'object' or 'array'
+	 * @param	string	$type	'object' || 'array'
 	 * @return	mixed
 	 */
 	public function row($n = 0, $type = 'object')
@@ -321,10 +321,10 @@ class CI_DB_result {
 		if ( ! is_numeric($n))
 		{
 			// We cache the row data for subsequent uses
-			is_array($this->row_data) OR $this->row_data = $this->row_array(0);
+			is_array($this->row_data) || $this->row_data = $this->row_array(0);
 
 			// array_key_exists() instead of isset() to allow for NULL values
-			if (empty($this->row_data) OR ! array_key_exists($n, $this->row_data))
+			if (empty($this->row_data) || ! array_key_exists($n, $this->row_data))
 			{
 				return NULL;
 			}
@@ -381,7 +381,7 @@ class CI_DB_result {
 	 */
 	public function custom_row_object($n, $type)
 	{
-		isset($this->custom_result_object[$type]) OR $this->custom_result_object($type);
+		isset($this->custom_result_object[$type]) || $this->custom_result_object($type);
 
 		if (count($this->custom_result_object[$type]) === 0)
 		{
@@ -521,7 +521,7 @@ class CI_DB_result {
 	/**
 	 * Returns an unbuffered row and move pointer to next row
 	 *
-	 * @param	string	$type	'array', 'object' or a custom class name
+	 * @param	string	$type	'array', 'object' || a custom class name
 	 * @return	mixed
 	 */
 	public function unbuffered_row($type = 'object')

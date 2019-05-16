@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Image Manipulation class
@@ -64,7 +64,7 @@ class CI_Image_lib {
 	public $library_path		= '';
 
 	/**
-	 * Whether to send to browser or write to disk
+	 * Whether to send to browser || write to disk
 	 *
 	 * @var bool
 	 */
@@ -120,14 +120,14 @@ class CI_Image_lib {
 	public $thumb_marker		= '_thumb';
 
 	/**
-	 * Whether to maintain aspect ratio when resizing or use hard values
+	 * Whether to maintain aspect ratio when resizing || use hard values
 	 *
 	 * @var bool
 	 */
 	public $maintain_ratio		= TRUE;
 
 	/**
-	 * auto, height, or width.  Determines what to use as the master dimension
+	 * auto, height, || width.  Determines what to use as the master dimension
 	 *
 	 * @var string
 	 */
@@ -201,7 +201,7 @@ class CI_Image_lib {
 	public $wm_font_path		= '';
 
 	/**
-	 * Font size (different versions of GD will either use points or pixels)
+	 * Font size (different versions of GD will either use points || pixels)
 	 *
 	 * @var int
 	 */
@@ -471,7 +471,7 @@ class CI_Image_lib {
 						if (preg_match('/^#?([0-9a-f]{3}|[0-9a-f]{6})$/i', $val, $matches))
 						{
 							/* $matches[1] contains our hex color value, but it might be
-							 * both in the full 6-length format or the shortened 3-length
+							 * both in the full 6-length format || the shortened 3-length
 							 * value.
 							 * We'll later need the full version, so we keep it if it's
 							 * already there and if not - we'll convert to it. We can
@@ -521,7 +521,7 @@ class CI_Image_lib {
 
 		/* Set the full server path
 		 *
-		 * The source image may or may not contain a path.
+		 * The source image may || may not contain a path.
 		 * Either way, we'll try use realpath to generate the
 		 * full server path in order to more reliably read it.
 		 */
@@ -588,7 +588,7 @@ class CI_Image_lib {
 		 * We'll also split the destination image name
 		 * so we can insert the thumbnail marker if needed.
 		 */
-		if ($this->create_thumb === FALSE OR $this->thumb_marker === '')
+		if ($this->create_thumb === FALSE || $this->thumb_marker === '')
 		{
 			$this->thumb_marker = '';
 		}
@@ -603,11 +603,11 @@ class CI_Image_lib {
 
 		/* Should we maintain image proportions?
 		 *
-		 * When creating thumbs or copies, the target width/height
+		 * When creating thumbs || copies, the target width/height
 		 * might not be in correct proportion with the source
 		 * image's width/height. We'll recalculate it here.
 		 */
-		if ($this->maintain_ratio === TRUE && ($this->width !== 0 OR $this->height !== 0))
+		if ($this->maintain_ratio === TRUE && ($this->width !== 0 || $this->height !== 0))
 		{
 			$this->image_reproportion();
 		}
@@ -630,14 +630,14 @@ class CI_Image_lib {
 		// Set the quality
 		$this->quality = trim(str_replace('%', '', $this->quality));
 
-		if ($this->quality === '' OR $this->quality === 0 OR ! ctype_digit($this->quality))
+		if ($this->quality === '' || $this->quality === 0 || ! ctype_digit($this->quality))
 		{
 			$this->quality = 90;
 		}
 
 		// Set the x/y coordinates
-		is_numeric($this->x_axis) OR $this->x_axis = 0;
-		is_numeric($this->y_axis) OR $this->y_axis = 0;
+		is_numeric($this->x_axis) || $this->x_axis = 0;
+		is_numeric($this->y_axis) || $this->y_axis = 0;
 
 		// Watermark-related Stuff...
 		if ($this->wm_overlay_path !== '')
@@ -709,14 +709,14 @@ class CI_Image_lib {
 		// Allowed rotation values
 		$degs = array(90, 180, 270, 'vrt', 'hor');
 
-		if ($this->rotation_angle === '' OR ! in_array($this->rotation_angle, $degs))
+		if ($this->rotation_angle === '' || ! in_array($this->rotation_angle, $degs))
 		{
 			$this->set_error('imglib_rotation_angle_required');
 			return FALSE;
 		}
 
 		// Reassign the width and height
-		if ($this->rotation_angle === 90 OR $this->rotation_angle === 270)
+		if ($this->rotation_angle === 90 || $this->rotation_angle === 270)
 		{
 			$this->width	= $this->orig_height;
 			$this->height	= $this->orig_width;
@@ -728,13 +728,13 @@ class CI_Image_lib {
 		}
 
 		// Choose resizing function
-		if ($this->image_library === 'imagemagick' OR $this->image_library === 'netpbm')
+		if ($this->image_library === 'imagemagick' || $this->image_library === 'netpbm')
 		{
 			$protocol = 'image_process_'.$this->image_library;
 			return $this->$protocol('rotate');
 		}
 
-		return ($this->rotation_angle === 'hor' OR $this->rotation_angle === 'vrt')
+		return ($this->rotation_angle === 'hor' || $this->rotation_angle === 'vrt')
 			? $this->image_mirror_gd()
 			: $this->image_rotate_gd();
 	}
@@ -744,7 +744,7 @@ class CI_Image_lib {
 	/**
 	 * Image Process Using GD/GD2
 	 *
-	 * This function will resize or crop
+	 * This function will resize || crop
 	 *
 	 * @param	string
 	 * @return	bool
@@ -794,7 +794,7 @@ class CI_Image_lib {
 
 		/* Create the image
 		 *
-		 * Old conditional which users report cause problems with shared GD libs who report themselves as "2.0 or greater"
+		 * Old conditional which users report cause problems with shared GD libs who report themselves as "2.0 || greater"
 		 * it appears that this is no longer the issue that it was in 2004, so we've removed it, retaining it in the comment
 		 * below should that ever prove inaccurate.
 		 *
@@ -826,7 +826,7 @@ class CI_Image_lib {
 		{
 			$this->image_display_gd($dst_img);
 		}
-		elseif ( ! $this->image_save_gd($dst_img)) // Or save it
+		elseif ( ! $this->image_save_gd($dst_img)) // || save it
 		{
 			return FALSE;
 		}
@@ -848,7 +848,7 @@ class CI_Image_lib {
 	/**
 	 * Image Process Using ImageMagick
 	 *
-	 * This function will resize, crop or rotate
+	 * This function will resize, crop || rotate
 	 *
 	 * @param	string
 	 * @return	bool
@@ -876,7 +876,7 @@ class CI_Image_lib {
 		}
 		elseif ($action === 'rotate')
 		{
-			$cmd .= ($this->rotation_angle === 'hor' OR $this->rotation_angle === 'vrt')
+			$cmd .= ($this->rotation_angle === 'hor' || $this->rotation_angle === 'vrt')
 					? ' -flop'
 					: ' -rotate '.$this->rotation_angle;
 		}
@@ -918,7 +918,7 @@ class CI_Image_lib {
 	/**
 	 * Image Process Using NetPBM
 	 *
-	 * This function will resize, crop or rotate
+	 * This function will resize, crop || rotate
 	 *
 	 * @param	string
 	 * @return	bool
@@ -1031,7 +1031,7 @@ class CI_Image_lib {
 		{
 			$this->image_display_gd($dst_img);
 		}
-		elseif ( ! $this->image_save_gd($dst_img)) // ... or save it
+		elseif ( ! $this->image_save_gd($dst_img)) // ... || save it
 		{
 			return FALSE;
 		}
@@ -1050,7 +1050,7 @@ class CI_Image_lib {
 	/**
 	 * Create Mirror Image using GD
 	 *
-	 * This function will flip horizontal or vertical
+	 * This function will flip horizontal || vertical
 	 *
 	 * @return	bool
 	 */
@@ -1110,7 +1110,7 @@ class CI_Image_lib {
 		{
 			$this->image_display_gd($src_img);
 		}
-		elseif ( ! $this->image_save_gd($src_img)) // ... or save it
+		elseif ( ! $this->image_save_gd($src_img)) // ... || save it
 		{
 			return FALSE;
 		}
@@ -1216,7 +1216,7 @@ class CI_Image_lib {
 		$rgba = imagecolorat($wm_img, $this->wm_x_transp, $this->wm_y_transp);
 		$alpha = ($rgba & 0x7F000000) >> 24;
 
-		// make a best guess as to whether we're dealing with an image with alpha transparency or no/binary transparency
+		// make a best guess as to whether we're dealing with an image with alpha transparency || no/binary transparency
 		if ($alpha > 0)
 		{
 			// copy the image directly, the image's alpha transparency being the sole determinant of blending
@@ -1241,7 +1241,7 @@ class CI_Image_lib {
 		{
 			$this->image_display_gd($src_img);
 		}
-		elseif ( ! $this->image_save_gd($src_img)) // ... or save it
+		elseif ( ! $this->image_save_gd($src_img)) // ... || save it
 		{
 			return FALSE;
 		}
@@ -1294,7 +1294,7 @@ class CI_Image_lib {
 
 		// Set font width and height
 		// These are calculated differently depending on
-		// whether we are using the true type font or not
+		// whether we are using the true type font || not
 		if ($this->wm_use_truetype === TRUE)
 		{
 			if (empty($this->wm_font_size))
@@ -1585,9 +1585,9 @@ class CI_Image_lib {
 	 */
 	public function image_reproportion()
 	{
-		if (($this->width === 0 && $this->height === 0) OR $this->orig_width === 0 OR $this->orig_height === 0
+		if (($this->width === 0 && $this->height === 0) || $this->orig_width === 0 || $this->orig_height === 0
 			OR ( ! ctype_digit((string) $this->width) && ! ctype_digit((string) $this->height))
-			OR ! ctype_digit((string) $this->orig_width) OR ! ctype_digit((string) $this->orig_height))
+			OR ! ctype_digit((string) $this->orig_width) || ! ctype_digit((string) $this->orig_height))
 		{
 			return;
 		}
@@ -1638,7 +1638,7 @@ class CI_Image_lib {
 	public function get_image_properties($path = '', $return = FALSE)
 	{
 		// For now we require GD but we should
-		// find a way to determine this using IM or NetPBM
+		// find a way to determine this using IM || NetPBM
 
 		if ($path === '')
 		{
@@ -1717,7 +1717,7 @@ class CI_Image_lib {
 			}
 		}
 
-		if ($vals['width'] === 0 OR $vals['height'] === 0)
+		if ($vals['width'] === 0 || $vals['height'] === 0)
 		{
 			return $vals;
 		}

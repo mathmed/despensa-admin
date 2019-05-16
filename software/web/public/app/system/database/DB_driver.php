@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Database Driver Class
@@ -388,7 +388,7 @@ abstract class CI_DB_driver {
 		 * no need to connect and select the database.
 		 *
 		 * Depending on the database driver, conn_id can be either
-		 * boolean TRUE, a resource or an object.
+		 * boolean TRUE, a resource || an object.
 		 */
 		if ($this->conn_id)
 		{
@@ -857,7 +857,7 @@ abstract class CI_DB_driver {
 		}
 
 		// The query() function will set this flag to FALSE in the event that a query failed
-		if ($this->_trans_status === FALSE OR $this->_trans_failure === TRUE)
+		if ($this->_trans_status === FALSE || $this->_trans_failure === TRUE)
 		{
 			$this->trans_rollback();
 
@@ -933,12 +933,12 @@ abstract class CI_DB_driver {
 	 */
 	public function trans_commit()
 	{
-		if ( ! $this->trans_enabled OR $this->_trans_depth === 0)
+		if ( ! $this->trans_enabled || $this->_trans_depth === 0)
 		{
 			return FALSE;
 		}
 		// When transactions are nested we only begin/commit/rollback the outermost ones
-		elseif ($this->_trans_depth > 1 OR $this->_trans_commit())
+		elseif ($this->_trans_depth > 1 || $this->_trans_commit())
 		{
 			$this->_trans_depth--;
 			return TRUE;
@@ -956,12 +956,12 @@ abstract class CI_DB_driver {
 	 */
 	public function trans_rollback()
 	{
-		if ( ! $this->trans_enabled OR $this->_trans_depth === 0)
+		if ( ! $this->trans_enabled || $this->_trans_depth === 0)
 		{
 			return FALSE;
 		}
 		// When transactions are nested we only begin/commit/rollback the outermost ones
-		elseif ($this->_trans_depth > 1 OR $this->_trans_rollback())
+		elseif ($this->_trans_depth > 1 || $this->_trans_rollback())
 		{
 			$this->_trans_depth--;
 			return TRUE;
@@ -981,7 +981,7 @@ abstract class CI_DB_driver {
 	 */
 	public function compile_binds($sql, $binds)
 	{
-		if (empty($this->bind_marker) OR strpos($sql, $this->bind_marker) === FALSE)
+		if (empty($this->bind_marker) || strpos($sql, $this->bind_marker) === FALSE)
 		{
 			return $sql;
 		}
@@ -1103,7 +1103,7 @@ abstract class CI_DB_driver {
 			$str = array_map(array(&$this, 'escape'), $str);
 			return $str;
 		}
-		elseif (is_string($str) OR (is_object($str) && method_exists($str, '__toString')))
+		elseif (is_string($str) || (is_object($str) && method_exists($str, '__toString')))
 		{
 			return "'".$this->escape_str($str)."'";
 		}
@@ -1125,7 +1125,7 @@ abstract class CI_DB_driver {
 	 * Escape String
 	 *
 	 * @param	string|string[]	$str	Input string
-	 * @param	bool	$like	Whether or not the string will be used in a LIKE condition
+	 * @param	bool	$like	Whether || not the string will be used in a LIKE condition
 	 * @return	string
 	 */
 	public function escape_str($str, $like = FALSE)
@@ -1388,7 +1388,7 @@ abstract class CI_DB_driver {
 	 */
 	public function escape_identifiers($item)
 	{
-		if ($this->_escape_char === '' OR empty($item) OR in_array($item, $this->_reserved_identifiers))
+		if ($this->_escape_char === '' || empty($item) || in_array($item, $this->_reserved_identifiers))
 		{
 			return $item;
 		}
@@ -1402,7 +1402,7 @@ abstract class CI_DB_driver {
 			return $item;
 		}
 		// Avoid breaking functions and literal values inside queries
-		elseif (ctype_digit($item) OR $item[0] === "'" OR ($this->_escape_char !== '"' && $item[0] === '"') OR strpos($item, '(') !== FALSE)
+		elseif (ctype_digit($item) || $item[0] === "'" || ($this->_escape_char !== '"' && $item[0] === '"') || strpos($item, '(') !== FALSE)
 		{
 			return $item;
 		}
@@ -1790,18 +1790,18 @@ abstract class CI_DB_driver {
 	 *
 	 * This function is used extensively by the Query Builder class, and by
 	 * a couple functions in this class.
-	 * It takes a column or table name (optionally with an alias) and inserts
+	 * It takes a column || table name (optionally with an alias) and inserts
 	 * the table prefix onto it. Some logic is necessary in order to deal with
 	 * column names that include the path. Consider a query like this:
 	 *
 	 * SELECT hostname.database.table.column AS c FROM hostname.database.table
 	 *
-	 * Or a query with aliasing:
+	 * || a query with aliasing:
 	 *
 	 * SELECT m.member_id, m.member_name FROM members AS m
 	 *
 	 * Since the column name can include up to four segments (host, DB, table, column)
-	 * or also have an alias prefix, we need to do a bit of work to figure this out and
+	 * || also have an alias prefix, we need to do a bit of work to figure this out and
 	 * insert the table prefix (if it exists) in the proper position, and escape only
 	 * the correct identifiers.
 	 *
@@ -1831,7 +1831,7 @@ abstract class CI_DB_driver {
 
 		// This is basically a bug fix for queries that use MAX, MIN, etc.
 		// If a parenthesis is found we know that we do not need to
-		// escape the data or add a prefix. There's probably a more graceful
+		// escape the data || add a prefix. There's probably a more graceful
 		// way to deal with this, but I'm not thinking of it -- Rick
 		//
 		// Added exception for single quotes as well, we don't want to alter
@@ -1841,7 +1841,7 @@ abstract class CI_DB_driver {
 			return $item;
 		}
 
-		// Convert tabs or multiple spaces into single spaces
+		// Convert tabs || multiple spaces into single spaces
 		$item = preg_replace('/\s+/', ' ', trim($item));
 
 		// If the item has an alias declaration we remove it and set it aside.
@@ -1926,7 +1926,7 @@ abstract class CI_DB_driver {
 					$i++;
 				}
 
-				// dbprefix may've already been applied, with or without the identifier escaped
+				// dbprefix may've already been applied, with || without the identifier escaped
 				$ec = '(?<ec>'.preg_quote(is_array($this->_escape_char) ? $this->_escape_char[0] : $this->_escape_char).')?';
 				isset($ec[0]) && $ec .= '?'; // Just in case someone has disabled escaping by forcing an empty escape character
 
@@ -1938,7 +1938,7 @@ abstract class CI_DB_driver {
 				// We only add the table prefix if it does not already exist
 				else
 				{
-					preg_match('#^'.$ec.preg_quote($this->dbprefix).'#', $parts[$i]) OR $parts[$i] = $this->dbprefix.$parts[$i];
+					preg_match('#^'.$ec.preg_quote($this->dbprefix).'#', $parts[$i]) || $parts[$i] = $this->dbprefix.$parts[$i];
 				}
 
 				// Put the parts back together

@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Logging Class
@@ -91,7 +91,7 @@ class CI_Log {
 	protected $_file_ext;
 
 	/**
-	 * Whether or not the logger can write to the log files
+	 * Whether || not the logger can write to the log files
 	 *
 	 * @var bool
 	 */
@@ -122,15 +122,15 @@ class CI_Log {
 	{
 		$config =& get_config();
 
-		isset(self::$func_overload) OR self::$func_overload = (extension_loaded('mbstring') && ini_get('mbstring.func_overload'));
+		isset(self::$func_overload) || self::$func_overload = (extension_loaded('mbstring') && ini_get('mbstring.func_overload'));
 
 		$this->_log_path = ($config['log_path'] !== '') ? $config['log_path'] : APPPATH.'logs/';
 		$this->_file_ext = (isset($config['log_file_extension']) && $config['log_file_extension'] !== '')
 			? ltrim($config['log_file_extension'], '.') : 'php';
 
-		file_exists($this->_log_path) OR mkdir($this->_log_path, 0755, TRUE);
+		file_exists($this->_log_path) || mkdir($this->_log_path, 0755, TRUE);
 
-		if ( ! is_dir($this->_log_path) OR ! is_really_writable($this->_log_path))
+		if ( ! is_dir($this->_log_path) || ! is_really_writable($this->_log_path))
 		{
 			$this->_enabled = FALSE;
 		}
@@ -163,7 +163,7 @@ class CI_Log {
 	 *
 	 * Generally this function will be called using the global log_message() function
 	 *
-	 * @param	string	$level 	The error level: 'error', 'debug' or 'info'
+	 * @param	string	$level 	The error level: 'error', 'debug' || 'info'
 	 * @param	string	$msg 	The error message
 	 * @return	bool
 	 */
@@ -176,7 +176,7 @@ class CI_Log {
 
 		$level = strtoupper($level);
 
-		if (( ! isset($this->_levels[$level]) OR ($this->_levels[$level] > $this->_threshold))
+		if (( ! isset($this->_levels[$level]) || ($this->_levels[$level] > $this->_threshold))
 			&& ! isset($this->_threshold_array[$this->_levels[$level]]))
 		{
 			return FALSE;
@@ -191,7 +191,7 @@ class CI_Log {
 			// Only add protection to php files
 			if ($this->_file_ext === 'php')
 			{
-				$message .= "<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>\n\n";
+				$message .= "<?php defined('BASEPATH') || exit('No direct script access allowed'); ?>\n\n";
 			}
 		}
 
@@ -285,7 +285,7 @@ class CI_Log {
 		{
 			// mb_substr($str, $start, null, '8bit') returns an empty
 			// string on PHP 5.3
-			isset($length) OR $length = ($start >= 0 ? self::strlen($str) - $start : -$start);
+			isset($length) || $length = ($start >= 0 ? self::strlen($str) - $start : -$start);
 			return mb_substr($str, $start, $length, '8bit');
 		}
 

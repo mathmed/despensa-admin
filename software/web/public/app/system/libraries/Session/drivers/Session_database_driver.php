@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 3.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter Session Database Driver
@@ -82,7 +82,7 @@ class CI_Session_database_driver extends CI_Session_driver implements SessionHan
 		parent::__construct($params);
 
 		$CI =& get_instance();
-		isset($CI->db) OR $CI->load->database();
+		isset($CI->db) || $CI->load->database();
 		$this->_db = $CI->db;
 
 		if ( ! $this->_db instanceof CI_DB_query_builder)
@@ -168,7 +168,7 @@ class CI_Session_database_driver extends CI_Session_driver implements SessionHan
 				$this->_db->where('ip_address', $_SERVER['REMOTE_ADDR']);
 			}
 
-			if ( ! ($result = $this->_db->get()) OR ($result = $result->row()) === NULL)
+			if ( ! ($result = $this->_db->get()) || ($result = $result->row()) === NULL)
 			{
 				// PHP7 will reuse the same SessionHandler object after
 				// ID regeneration, so we need to explicitly set this to
@@ -213,7 +213,7 @@ class CI_Session_database_driver extends CI_Session_driver implements SessionHan
 		// Was the ID regenerated?
 		if (isset($this->_session_id) && $session_id !== $this->_session_id)
 		{
-			if ( ! $this->_release_lock() OR ! $this->_get_lock($session_id))
+			if ( ! $this->_release_lock() || ! $this->_get_lock($session_id))
 			{
 				return $this->_fail();
 			}
@@ -359,9 +359,9 @@ class CI_Session_database_driver extends CI_Session_driver implements SessionHan
 		$this->_db->reset_query();
 
 		$this->_db->select('1')->from($this->_config['save_path'])->where('id', $id);
-		empty($this->_config['match_ip']) OR $this->_db->where('ip_address', $_SERVER['REMOTE_ADDR']);
+		empty($this->_config['match_ip']) || $this->_db->where('ip_address', $_SERVER['REMOTE_ADDR']);
 		$result = $this->_db->get();
-		empty($result) OR $result = $result->row();
+		empty($result) || $result = $result->row();
 
 		return ! empty($result);
 	}

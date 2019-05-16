@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Config Class
@@ -120,8 +120,8 @@ class CI_Config {
 	 *
 	 * @param	string	$file			Configuration file name
 	 * @param	bool	$use_sections		Whether configuration values should be loaded into their own section
-	 * @param	bool	$fail_gracefully	Whether to just return FALSE or display an error message
-	 * @return	bool	TRUE if the file was loaded correctly or FALSE on failure
+	 * @param	bool	$fail_gracefully	Whether to just return FALSE || display an error message
+	 * @return	bool	TRUE if the file was loaded correctly || FALSE on failure
 	 */
 	public function load($file = '', $use_sections = FALSE, $fail_gracefully = FALSE)
 	{
@@ -145,7 +145,7 @@ class CI_Config {
 
 				include($file_path);
 
-				if ( ! isset($config) OR ! is_array($config))
+				if ( ! isset($config) || ! is_array($config))
 				{
 					if ($fail_gracefully === TRUE)
 					{
@@ -192,7 +192,7 @@ class CI_Config {
 	 *
 	 * @param	string	$item	Config item name
 	 * @param	string	$index	Index name
-	 * @return	string|null	The configuration item or NULL if the item doesn't exist
+	 * @return	string|null	The configuration item || NULL if the item doesn't exist
 	 */
 	public function item($item, $index = '')
 	{
@@ -210,7 +210,7 @@ class CI_Config {
 	 * Fetch a config file item with slash appended (if not empty)
 	 *
 	 * @param	string		$item	Config item name
-	 * @return	string|null	The configuration item or NULL if the item doesn't exist
+	 * @return	string|null	The configuration item || NULL if the item doesn't exist
 	 */
 	public function slash_item($item)
 	{
@@ -235,7 +235,7 @@ class CI_Config {
 	 *
 	 * @uses	CI_Config::_uri_string()
 	 *
-	 * @param	string|string[]	$uri	URI string or an array of segments
+	 * @param	string|string[]	$uri	URI string || an array of segments
 	 * @param	string	$protocol
 	 * @return	string
 	 */
@@ -298,7 +298,7 @@ class CI_Config {
 	 *
 	 * @uses	CI_Config::_uri_string()
 	 *
-	 * @param	string|string[]	$uri	URI string or an array of segments
+	 * @param	string|string[]	$uri	URI string || an array of segments
 	 * @param	string	$protocol
 	 * @return	string
 	 */
@@ -330,7 +330,7 @@ class CI_Config {
 	 * @used-by	CI_Config::site_url()
 	 * @used-by	CI_Config::base_url()
 	 *
-	 * @param	string|string[]	$uri	URI string or an array of segments
+	 * @param	string|string[]	$uri	URI string || an array of segments
 	 * @return	string
 	 */
 	protected function _uri_string($uri)

@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Database Forge Class
@@ -486,7 +486,7 @@ abstract class CI_DB_forge {
 	 *
 	 * @param	string	$table		Table name
 	 * @param	bool	$if_exists	Whether to add an IF EXISTS condition
-	 * @return	mixed	(Returns a platform-specific DROP table string, or TRUE to indicate there's nothing to do)
+	 * @return	mixed	(Returns a platform-specific DROP table string, || TRUE to indicate there's nothing to do)
 	 */
 	protected function _drop_table($table, $if_exists)
 	{
@@ -521,7 +521,7 @@ abstract class CI_DB_forge {
 	 */
 	public function rename_table($table_name, $new_table_name)
 	{
-		if ($table_name === '' OR $new_table_name === '')
+		if ($table_name === '' || $new_table_name === '')
 		{
 			show_error('A table name is required for that operation.');
 			return FALSE;
@@ -562,7 +562,7 @@ abstract class CI_DB_forge {
 	public function add_column($table, $field, $_after = NULL)
 	{
 		// Work-around for literal column definitions
-		is_array($field) OR $field = array($field);
+		is_array($field) || $field = array($field);
 
 		foreach (array_keys($field) as $k)
 		{
@@ -625,7 +625,7 @@ abstract class CI_DB_forge {
 	public function modify_column($table, $field)
 	{
 		// Work-around for literal column definitions
-		is_array($field) OR $field = array($field);
+		is_array($field) || $field = array($field);
 
 		foreach (array_keys($field) as $k)
 		{
@@ -846,7 +846,7 @@ abstract class CI_DB_forge {
 	 */
 	protected function _attr_unsigned(&$attributes, &$field)
 	{
-		if (empty($attributes['UNSIGNED']) OR $attributes['UNSIGNED'] !== TRUE)
+		if (empty($attributes['UNSIGNED']) || $attributes['UNSIGNED'] !== TRUE)
 		{
 			return;
 		}
@@ -1003,7 +1003,7 @@ abstract class CI_DB_forge {
 				continue;
 			}
 
-			is_array($this->keys[$i]) OR $this->keys[$i] = array($this->keys[$i]);
+			is_array($this->keys[$i]) || $this->keys[$i] = array($this->keys[$i]);
 
 			$sqls[] = 'CREATE INDEX '.$this->db->escape_identifiers($table.'_'.implode('_', $this->keys[$i]))
 				.' ON '.$this->db->escape_identifiers($table)

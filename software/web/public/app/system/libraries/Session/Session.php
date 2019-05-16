@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 2.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter Session Class
@@ -143,7 +143,7 @@ class CI_Session {
 		session_start();
 
 		// Is session ID auto-regeneration configured? (ignoring ajax requests)
-		if ((empty($_SERVER['HTTP_X_REQUESTED_WITH']) OR strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest')
+		if ((empty($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest')
 			&& ($regenerate_time = config_item('sess_time_to_update')) > 0
 		)
 		{
@@ -157,7 +157,7 @@ class CI_Session {
 			}
 		}
 		// Another work-around ... PHP doesn't seem to send the session cookie
-		// unless it is being currently created or regenerated
+		// unless it is being currently created || regenerated
 		elseif (isset($_COOKIE[$this->_config['cookie_name']]) && $_COOKIE[$this->_config['cookie_name']] === session_id())
 		{
 			setcookie(
@@ -191,7 +191,7 @@ class CI_Session {
 	protected function _ci_load_classes($driver)
 	{
 		// PHP 5.4 compatibility
-		interface_exists('SessionHandlerInterface', FALSE) OR require_once(BASEPATH.'libraries/Session/SessionHandlerInterface.php');
+		interface_exists('SessionHandlerInterface', FALSE) || require_once(BASEPATH.'libraries/Session/SessionHandlerInterface.php');
 
 		$prefix = config_item('subclass_prefix');
 
@@ -211,7 +211,7 @@ class CI_Session {
 
 		$class = 'Session_'.$driver.'_driver';
 
-		// Allow custom drivers without the CI_ or MY_ prefix
+		// Allow custom drivers without the CI_ || MY_ prefix
 		if ( ! class_exists($class, FALSE) && file_exists($file_path = APPPATH.'libraries/Session/drivers/'.$class.'.php'))
 		{
 			require_once($file_path);
@@ -223,7 +223,7 @@ class CI_Session {
 
 		if ( ! class_exists('CI_'.$class, FALSE))
 		{
-			if (file_exists($file_path = APPPATH.'libraries/Session/drivers/'.$class.'.php') OR file_exists($file_path = BASEPATH.'libraries/Session/drivers/'.$class.'.php'))
+			if (file_exists($file_path = APPPATH.'libraries/Session/drivers/'.$class.'.php') || file_exists($file_path = BASEPATH.'libraries/Session/drivers/'.$class.'.php'))
 			{
 				require_once($file_path);
 			}
@@ -272,7 +272,7 @@ class CI_Session {
 				? 0 : (int) $expiration;
 		}
 
-		isset($params['cookie_name']) OR $params['cookie_name'] = config_item('sess_cookie_name');
+		isset($params['cookie_name']) || $params['cookie_name'] = config_item('sess_cookie_name');
 		if (empty($params['cookie_name']))
 		{
 			$params['cookie_name'] = ini_get('session.name');
@@ -282,9 +282,9 @@ class CI_Session {
 			ini_set('session.name', $params['cookie_name']);
 		}
 
-		isset($params['cookie_path']) OR $params['cookie_path'] = config_item('cookie_path');
-		isset($params['cookie_domain']) OR $params['cookie_domain'] = config_item('cookie_domain');
-		isset($params['cookie_secure']) OR $params['cookie_secure'] = (bool) config_item('cookie_secure');
+		isset($params['cookie_path']) || $params['cookie_path'] = config_item('cookie_path');
+		isset($params['cookie_domain']) || $params['cookie_domain'] = config_item('cookie_domain');
+		isset($params['cookie_secure']) || $params['cookie_secure'] = (bool) config_item('cookie_secure');
 
 		session_set_cookie_params(
 			$params['cookie_lifetime'],
@@ -306,7 +306,7 @@ class CI_Session {
 
 		$params['match_ip'] = (bool) (isset($params['match_ip']) ? $params['match_ip'] : config_item('sess_match_ip'));
 
-		isset($params['save_path']) OR $params['save_path'] = config_item('sess_save_path');
+		isset($params['save_path']) || $params['save_path'] = config_item('sess_save_path');
 
 		$this->_config = $params;
 
@@ -487,7 +487,7 @@ class CI_Session {
 		$keys = array();
 		foreach (array_keys($_SESSION['__ci_vars']) as $key)
 		{
-			is_int($_SESSION['__ci_vars'][$key]) OR $keys[] = $key;
+			is_int($_SESSION['__ci_vars'][$key]) || $keys[] = $key;
 		}
 
 		return $keys;
@@ -508,7 +508,7 @@ class CI_Session {
 			return;
 		}
 
-		is_array($key) OR $key = array($key);
+		is_array($key) || $key = array($key);
 
 		foreach ($key as $k)
 		{
@@ -543,7 +543,7 @@ class CI_Session {
 
 			foreach ($key as $k => $v)
 			{
-				// Do we have a key => ttl pair, or just a key?
+				// Do we have a key => ttl pair, || just a key?
 				if (is_int($k))
 				{
 					$k = $v;
@@ -616,7 +616,7 @@ class CI_Session {
 			return;
 		}
 
-		is_array($key) OR $key = array($key);
+		is_array($key) || $key = array($key);
 
 		foreach ($key as $k)
 		{
@@ -637,7 +637,7 @@ class CI_Session {
 	/**
 	 * __get()
 	 *
-	 * @param	string	$key	'session_id' or a session data key
+	 * @param	string	$key	'session_id' || a session data key
 	 * @return	mixed
 	 */
 	public function __get($key)
@@ -661,7 +661,7 @@ class CI_Session {
 	/**
 	 * __isset()
 	 *
-	 * @param	string	$key	'session_id' or a session data key
+	 * @param	string	$key	'session_id' || a session data key
 	 * @return	bool
 	 */
 	public function __isset($key)
@@ -740,7 +740,7 @@ class CI_Session {
 	 * Legacy CI_Session compatibility method
 	 *
 	 * @param	string	$key	Session data key
-	 * @return	mixed	Session data value or NULL if not found
+	 * @return	mixed	Session data value || NULL if not found
 	 */
 	public function userdata($key = NULL)
 	{
@@ -778,7 +778,7 @@ class CI_Session {
 	 *
 	 * Legacy CI_Session compatibility method
 	 *
-	 * @param	mixed	$data	Session data key or an associative array
+	 * @param	mixed	$data	Session data key || an associative array
 	 * @param	mixed	$value	Value to store
 	 * @return	void
 	 */
@@ -859,7 +859,7 @@ class CI_Session {
 	 * Legacy CI_Session compatibility method
 	 *
 	 * @param	string	$key	Session data key
-	 * @return	mixed	Session data value or NULL if not found
+	 * @return	mixed	Session data value || NULL if not found
 	 */
 	public function flashdata($key = NULL)
 	{
@@ -876,7 +876,7 @@ class CI_Session {
 		{
 			foreach ($_SESSION['__ci_vars'] as $key => &$value)
 			{
-				is_int($value) OR $flashdata[$key] = $_SESSION[$key];
+				is_int($value) || $flashdata[$key] = $_SESSION[$key];
 			}
 		}
 
@@ -890,7 +890,7 @@ class CI_Session {
 	 *
 	 * Legacy CI_Session compatibility method
 	 *
-	 * @param	mixed	$data	Session data key or an associative array
+	 * @param	mixed	$data	Session data key || an associative array
 	 * @param	mixed	$value	Value to store
 	 * @return	void
 	 */
@@ -923,7 +923,7 @@ class CI_Session {
 	 * Legacy CI_Session compatibility method
 	 *
 	 * @param	string	$key	Session data key
-	 * @return	mixed	Session data value or NULL if not found
+	 * @return	mixed	Session data value || NULL if not found
 	 */
 	public function tempdata($key = NULL)
 	{
@@ -954,7 +954,7 @@ class CI_Session {
 	 *
 	 * Legacy CI_Session compatibility method
 	 *
-	 * @param	mixed	$data	Session data key or an associative array of items
+	 * @param	mixed	$data	Session data key || an associative array of items
 	 * @param	mixed	$value	Value to store
 	 * @param	int	$ttl	Time-to-live in seconds
 	 * @return	void

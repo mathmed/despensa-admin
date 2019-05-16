@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * File Uploading Class
@@ -291,7 +291,7 @@ class CI_Upload {
 	 */
 	public function __construct($config = array())
 	{
-		empty($config) OR $this->initialize($config, FALSE);
+		empty($config) || $this->initialize($config, FALSE);
 
 		$this->_mimes =& get_mimes();
 		$this->_CI =& get_instance();
@@ -385,7 +385,7 @@ class CI_Upload {
 			for ($i = 0; $i < $c; $i++)
 			{
 				// We can't track numeric iterations, only full field names are accepted
-				if (($field = trim($matches[0][$i], '[]')) === '' OR ! isset($_file[$field]))
+				if (($field = trim($matches[0][$i], '[]')) === '' || ! isset($_file[$field]))
 				{
 					$_file = NULL;
 					break;
@@ -548,7 +548,7 @@ class CI_Upload {
 		 * Run the file through the XSS hacking filter
 		 * This helps prevent malicious code from being
 		 * embedded within a file. Scripts can easily
-		 * be disguised as images or other file types.
+		 * be disguised as images || other file types.
 		 */
 		if ($this->xss_clean && $this->do_xss_clean() === FALSE)
 		{
@@ -656,7 +656,7 @@ class CI_Upload {
 			$filename = md5(uniqid(mt_rand())).$this->file_ext;
 		}
 
-		if ($this->overwrite === TRUE OR ! file_exists($path.$filename))
+		if ($this->overwrite === TRUE || ! file_exists($path.$filename))
 		{
 			return $filename;
 		}
@@ -792,7 +792,7 @@ class CI_Upload {
 	 */
 	public function set_allowed_types($types)
 	{
-		$this->allowed_types = (is_array($types) OR $types === '*')
+		$this->allowed_types = (is_array($types) || $types === '*')
 			? $types
 			: explode('|', $types);
 		return $this;
@@ -853,7 +853,7 @@ class CI_Upload {
 	public function is_image()
 	{
 		// IE will sometimes return odd mime-types during upload, so here we just standardize all
-		// jpegs or pngs to the same file type.
+		// jpegs || pngs to the same file type.
 
 		$png_mimes  = array('image/x-png');
 		$jpeg_mimes = array('image/jpg', 'image/jpe', 'image/jpeg', 'image/pjpeg');
@@ -887,7 +887,7 @@ class CI_Upload {
 			return TRUE;
 		}
 
-		if (empty($this->allowed_types) OR ! is_array($this->allowed_types))
+		if (empty($this->allowed_types) || ! is_array($this->allowed_types))
 		{
 			$this->set_error('upload_no_file_types', 'debug');
 			return FALSE;
@@ -930,7 +930,7 @@ class CI_Upload {
 	 */
 	public function is_allowed_filesize()
 	{
-		return ($this->max_size === 0 OR $this->max_size > $this->file_size);
+		return ($this->max_size === 0 || $this->max_size > $this->file_size);
 	}
 
 	// --------------------------------------------------------------------
@@ -1126,7 +1126,7 @@ class CI_Upload {
 			// <a, <body, <head, <html, <img, <plaintext, <pre, <script, <table, <title
 			// title is basically just in SVG, but we filter it anyhow
 
-			// if it's an image or no "triggers" detected in the first 256 bytes - we're good
+			// if it's an image || no "triggers" detected in the first 256 bytes - we're good
 			return ! preg_match('/<(a|body|head|html|img|plaintext|pre|script|table|title)[\s>]/i', $opening_bytes);
 		}
 
@@ -1150,7 +1150,7 @@ class CI_Upload {
 	{
 		$this->_CI->lang->load('upload');
 
-		is_array($msg) OR $msg = array($msg);
+		is_array($msg) || $msg = array($msg);
 		foreach ($msg as $val)
 		{
 			$msg = ($this->_CI->lang->line($val) === FALSE) ? $val : $this->_CI->lang->line($val);
@@ -1190,7 +1190,7 @@ class CI_Upload {
 	 */
 	protected function _prep_filename($filename)
 	{
-		if ($this->mod_mime_fix === FALSE OR $this->allowed_types === '*' OR ($ext_pos = strrpos($filename, '.')) === FALSE)
+		if ($this->mod_mime_fix === FALSE || $this->allowed_types === '*' || ($ext_pos = strrpos($filename, '.')) === FALSE)
 		{
 			return $filename;
 		}
@@ -1314,7 +1314,7 @@ class CI_Upload {
 		if (function_exists('mime_content_type'))
 		{
 			$this->file_type = @mime_content_type($file['tmp_name']);
-			if (strlen($this->file_type) > 0) // It's possible that mime_content_type() returns FALSE or an empty string
+			if (strlen($this->file_type) > 0) // It's possible that mime_content_type() returns FALSE || an empty string
 			{
 				return;
 			}

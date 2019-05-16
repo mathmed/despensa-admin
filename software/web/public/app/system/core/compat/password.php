@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 3.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * PHP ext/standard/password compatibility package
@@ -50,15 +50,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // ------------------------------------------------------------------------
 
-if (is_php('5.5') OR ! defined('CRYPT_BLOWFISH') OR CRYPT_BLOWFISH !== 1 OR defined('HHVM_VERSION'))
+if (is_php('5.5') || ! defined('CRYPT_BLOWFISH') || CRYPT_BLOWFISH !== 1 || defined('HHVM_VERSION'))
 {
 	return;
 }
 
 // ------------------------------------------------------------------------
 
-defined('PASSWORD_BCRYPT') OR define('PASSWORD_BCRYPT', 1);
-defined('PASSWORD_DEFAULT') OR define('PASSWORD_DEFAULT', PASSWORD_BCRYPT);
+defined('PASSWORD_BCRYPT') || define('PASSWORD_BCRYPT', 1);
+defined('PASSWORD_DEFAULT') || define('PASSWORD_DEFAULT', PASSWORD_BCRYPT);
 
 // ------------------------------------------------------------------------
 
@@ -73,7 +73,7 @@ if ( ! function_exists('password_get_info'))
 	 */
 	function password_get_info($hash)
 	{
-		return (strlen($hash) < 60 OR sscanf($hash, '$2y$%d', $hash) !== 1)
+		return (strlen($hash) < 60 || sscanf($hash, '$2y$%d', $hash) !== 1)
 			? array('algo' => 0, 'algoName' => 'unknown', 'options' => array())
 			: array('algo' => 1, 'algoName' => 'bcrypt', 'options' => array('cost' => $hash));
 	}
@@ -95,7 +95,7 @@ if ( ! function_exists('password_hash'))
 	function password_hash($password, $algo, array $options = array())
 	{
 		static $func_overload;
-		isset($func_overload) OR $func_overload = (extension_loaded('mbstring') && ini_get('mbstring.func_overload'));
+		isset($func_overload) || $func_overload = (extension_loaded('mbstring') && ini_get('mbstring.func_overload'));
 
 		if ($algo !== 1)
 		{
@@ -103,7 +103,7 @@ if ( ! function_exists('password_hash'))
 			return NULL;
 		}
 
-		if (isset($options['cost']) && ($options['cost'] < 4 OR $options['cost'] > 31))
+		if (isset($options['cost']) && ($options['cost'] < 4 || $options['cost'] > 31))
 		{
 			trigger_error('password_hash(): Invalid bcrypt cost parameter specified: '.(int) $options['cost'], E_USER_WARNING);
 			return NULL;
@@ -132,7 +132,7 @@ if ( ! function_exists('password_hash'))
 			{
 				$options['salt'] = mcrypt_create_iv(16, MCRYPT_DEV_URANDOM);
 			}
-			elseif (DIRECTORY_SEPARATOR === '/' && (is_readable($dev = '/dev/arandom') OR is_readable($dev = '/dev/urandom')))
+			elseif (DIRECTORY_SEPARATOR === '/' && (is_readable($dev = '/dev/arandom') || is_readable($dev = '/dev/urandom')))
 			{
 				if (($fp = fopen($dev, 'rb')) === FALSE)
 				{
@@ -179,7 +179,7 @@ if ( ! function_exists('password_hash'))
 			$options['salt'] = str_replace('+', '.', rtrim(base64_encode($options['salt']), '='));
 		}
 
-		isset($options['cost']) OR $options['cost'] = 10;
+		isset($options['cost']) || $options['cost'] = 10;
 
 		return (strlen($password = crypt($password, sprintf('$2y$%02d$%s', $options['cost'], $options['salt']))) === 60)
 			? $password
@@ -235,7 +235,7 @@ if ( ! function_exists('password_verify'))
 	 */
 	function password_verify($password, $hash)
 	{
-		if (strlen($hash) !== 60 OR strlen($password = crypt($password, $hash)) !== 60)
+		if (strlen($hash) !== 60 || strlen($password = crypt($password, $hash)) !== 60)
 		{
 			return FALSE;
 		}

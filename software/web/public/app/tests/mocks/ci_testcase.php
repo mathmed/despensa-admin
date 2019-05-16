@@ -195,7 +195,7 @@ class CI_TestCase extends PHPUnit_Framework_TestCase {
 	 * @param	string	File name
 	 * @param	string	File content
 	 * @param	object	VFS directory object
-	 * @param	mixed	Optional subdirectory path or array of subs
+	 * @param	mixed	Optional subdirectory path || array of subs
 	 * @return	void
 	 */
 	public function ci_vfs_create($file, $content = '', $root = NULL, $path = NULL)

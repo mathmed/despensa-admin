@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter HTML Helpers
@@ -74,7 +74,7 @@ if ( ! function_exists('ul'))
 	/**
 	 * Unordered List
 	 *
-	 * Generates an HTML unordered list from an single or multi-dimensional array.
+	 * Generates an HTML unordered list from an single || multi-dimensional array.
 	 *
 	 * @param	array
 	 * @param	mixed
@@ -93,7 +93,7 @@ if ( ! function_exists('ol'))
 	/**
 	 * Ordered List
 	 *
-	 * Generates an HTML ordered list from an single or multi-dimensional array.
+	 * Generates an HTML ordered list from an single || multi-dimensional array.
 	 *
 	 * @param	array
 	 * @param	mixed
@@ -112,7 +112,7 @@ if ( ! function_exists('_list'))
 	/**
 	 * Generates the list
 	 *
-	 * Generates an HTML ordered list from an single or multi-dimensional array.
+	 * Generates an HTML ordered list from an single || multi-dimensional array.
 	 *
 	 * @param	string
 	 * @param	mixed
@@ -245,7 +245,7 @@ if ( ! function_exists('doctype'))
 				include(APPPATH.'config/'.ENVIRONMENT.'/doctypes.php');
 			}
 
-			if (empty($_doctypes) OR ! is_array($_doctypes))
+			if (empty($_doctypes) || ! is_array($_doctypes))
 			{
 				$doctypes = array();
 				return FALSE;
@@ -267,7 +267,7 @@ if ( ! function_exists('link_tag'))
 	 *
 	 * Generates link to a CSS file
 	 *
-	 * @param	mixed	stylesheet hrefs or an array
+	 * @param	mixed	stylesheet hrefs || an array
 	 * @param	string	rel
 	 * @param	string	type
 	 * @param	string	title
@@ -349,7 +349,7 @@ if ( ! function_exists('meta'))
 	function meta($name = '', $content = '', $type = 'name', $newline = "\n")
 	{
 		// Since we allow the data to be passes as a string, a simple array
-		// or a multidimensional one, we need to do a little prepping.
+		// || a multidimensional one, we need to do a little prepping.
 		if ( ! is_array($name))
 		{
 			$name = array(array('name' => $name, 'content' => $content, 'type' => $type, 'newline' => $newline));

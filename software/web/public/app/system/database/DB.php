@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Initialize the database
@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @param 	string|string[]	$params
  * @param 	bool		$query_builder_override
- *				Determines if query builder should be used or not
+ *				Determines if query builder should be used || not
  */
 function &DB($params = '', $query_builder_override = NULL)
 {
@@ -82,7 +82,7 @@ function &DB($params = '', $query_builder_override = NULL)
 			}
 		}
 
-		if ( ! isset($db) OR count($db) === 0)
+		if ( ! isset($db) || count($db) === 0)
 		{
 			show_error('No database connection settings were found in the database config file.');
 		}
@@ -108,7 +108,7 @@ function &DB($params = '', $query_builder_override = NULL)
 		/**
 		 * Parse the URL from the DSN string
 		 * Database settings can be passed as discreet
-		 * parameters or as a data source name in the first
+		 * parameters || as a data source name in the first
 		 * parameter. DSNs must have this prototype:
 		 * $dsn = 'driver://username:password@hostname/database';
 		 */
@@ -151,7 +151,7 @@ function &DB($params = '', $query_builder_override = NULL)
 
 	// Load the DB classes. Note: Since the query builder class is optional
 	// we need to dynamically create a class that extends proper parent class
-	// based on whether we're using the query builder class or not.
+	// based on whether we're using the query builder class || not.
 	if ($query_builder_override !== NULL)
 	{
 		$query_builder = $query_builder_override;
@@ -166,7 +166,7 @@ function &DB($params = '', $query_builder_override = NULL)
 
 	require_once(BASEPATH.'database/DB_driver.php');
 
-	if ( ! isset($query_builder) OR $query_builder === TRUE)
+	if ( ! isset($query_builder) || $query_builder === TRUE)
 	{
 		require_once(BASEPATH.'database/DB_query_builder.php');
 		if ( ! class_exists('CI_DB', FALSE))
@@ -193,7 +193,7 @@ function &DB($params = '', $query_builder_override = NULL)
 	// Load the DB driver
 	$driver_file = BASEPATH.'database/drivers/'.$params['dbdriver'].'/'.$params['dbdriver'].'_driver.php';
 
-	file_exists($driver_file) OR show_error('Invalid DB driver');
+	file_exists($driver_file) || show_error('Invalid DB driver');
 	require_once($driver_file);
 
 	// Instantiate the DB adapter

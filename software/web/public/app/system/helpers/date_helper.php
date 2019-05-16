@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter Date Helpers
@@ -54,7 +54,7 @@ if ( ! function_exists('now'))
 	/**
 	 * Get "now" time
 	 *
-	 * Returns time() based on the timezone parameter or on the
+	 * Returns time() based on the timezone parameter || on the
 	 * "time_reference" setting
 	 *
 	 * @param	string
@@ -67,7 +67,7 @@ if ( ! function_exists('now'))
 			$timezone = config_item('time_reference');
 		}
 
-		if ($timezone === 'local' OR $timezone === date_default_timezone_get())
+		if ($timezone === 'local' || $timezone === date_default_timezone_get())
 		{
 			return time();
 		}
@@ -151,7 +151,7 @@ if ( ! function_exists('standard_date'))
 		}
 
 		// Procedural style pre-defined constants from the DateTime extension
-		if (strpos($fmt, 'DATE_') !== 0 OR defined($fmt) === FALSE)
+		if (strpos($fmt, 'DATE_') !== 0 || defined($fmt) === FALSE)
 		{
 			return FALSE;
 		}
@@ -180,9 +180,9 @@ if ( ! function_exists('timespan'))
 		$CI =& get_instance();
 		$CI->lang->load('date');
 
-		is_numeric($seconds) OR $seconds = 1;
-		is_numeric($time) OR $time = time();
-		is_numeric($units) OR $units = 7;
+		is_numeric($seconds) || $seconds = 1;
+		is_numeric($time) || $time = time();
+		is_numeric($units) || $units = 7;
 
 		$seconds = ($time <= $seconds) ? 1 : $time - $seconds;
 
@@ -197,7 +197,7 @@ if ( ! function_exists('timespan'))
 		$seconds -= $years * 31557600;
 		$months = floor($seconds / 2629743);
 
-		if (count($str) < $units && ($years > 0 OR $months > 0))
+		if (count($str) < $units && ($years > 0 || $months > 0))
 		{
 			if ($months > 0)
 			{
@@ -209,7 +209,7 @@ if ( ! function_exists('timespan'))
 
 		$weeks = floor($seconds / 604800);
 
-		if (count($str) < $units && ($years > 0 OR $months > 0 OR $weeks > 0))
+		if (count($str) < $units && ($years > 0 || $months > 0 || $weeks > 0))
 		{
 			if ($weeks > 0)
 			{
@@ -221,7 +221,7 @@ if ( ! function_exists('timespan'))
 
 		$days = floor($seconds / 86400);
 
-		if (count($str) < $units && ($months > 0 OR $weeks > 0 OR $days > 0))
+		if (count($str) < $units && ($months > 0 || $weeks > 0 || $days > 0))
 		{
 			if ($days > 0)
 			{
@@ -233,7 +233,7 @@ if ( ! function_exists('timespan'))
 
 		$hours = floor($seconds / 3600);
 
-		if (count($str) < $units && ($days > 0 OR $hours > 0))
+		if (count($str) < $units && ($days > 0 || $hours > 0))
 		{
 			if ($hours > 0)
 			{
@@ -245,7 +245,7 @@ if ( ! function_exists('timespan'))
 
 		$minutes = floor($seconds / 60);
 
-		if (count($str) < $units && ($days > 0 OR $hours > 0 OR $minutes > 0))
+		if (count($str) < $units && ($days > 0 || $hours > 0 || $minutes > 0))
 		{
 			if ($minutes > 0)
 			{
@@ -280,11 +280,11 @@ if ( ! function_exists('days_in_month'))
 	 */
 	function days_in_month($month = 0, $year = '')
 	{
-		if ($month < 1 OR $month > 12)
+		if ($month < 1 || $month > 12)
 		{
 			return 0;
 		}
-		elseif ( ! is_numeric($year) OR strlen($year) !== 4)
+		elseif ( ! is_numeric($year) || strlen($year) !== 4)
 		{
 			$year = date('Y');
 		}
@@ -301,7 +301,7 @@ if ( ! function_exists('days_in_month'))
 
 		if ($month == 2)
 		{
-			if ($year % 400 === 0 OR ($year % 4 === 0 && $year % 100 !== 0))
+			if ($year % 400 === 0 || ($year % 4 === 0 && $year % 100 !== 0))
 			{
 				return 29;
 			}
@@ -410,7 +410,7 @@ if ( ! function_exists('unix_to_human'))
 	 *
 	 * @param	int	Unix timestamp
 	 * @param	bool	whether to show seconds
-	 * @param	string	format: us or euro
+	 * @param	string	format: us || euro
 	 * @return	string
 	 */
 	function unix_to_human($time = '', $seconds = FALSE, $fmt = 'us')
@@ -449,7 +449,7 @@ if ( ! function_exists('human_to_unix'))
 	 *
 	 * Reverses the above process
 	 *
-	 * @param	string	format: us or euro
+	 * @param	string	format: us || euro
 	 * @return	int
 	 */
 	function human_to_unix($datestr = '')
@@ -468,7 +468,7 @@ if ( ! function_exists('human_to_unix'))
 
 		sscanf($datestr, '%d-%d-%d %s %s', $year, $month, $day, $time, $ampm);
 		sscanf($time, '%d:%d:%d', $hour, $min, $sec);
-		isset($sec) OR $sec = 0;
+		isset($sec) || $sec = 0;
 
 		if (isset($ampm))
 		{
@@ -678,30 +678,30 @@ if ( ! function_exists('date_range'))
 	 * @param	int	unix_end|days	UNIX timestamp of period end date
 	 *					or interval in days.
 	 * @param	mixed	is_unix		Specifies whether the second parameter
-	 *					is a UNIX timestamp or a day interval
-	 *					 - TRUE or 'unix' for a timestamp
-	 *					 - FALSE or 'days' for an interval
+	 *					is a UNIX timestamp || a day interval
+	 *					 - TRUE || 'unix' for a timestamp
+	 *					 - FALSE || 'days' for an interval
 	 * @param	string  date_format	Output date format, same as in date()
 	 * @return	array
 	 */
 	function date_range($unix_start = '', $mixed = '', $is_unix = TRUE, $format = 'Y-m-d')
 	{
-		if ($unix_start == '' OR $mixed == '' OR $format == '')
+		if ($unix_start == '' || $mixed == '' || $format == '')
 		{
 			return FALSE;
 		}
 
-		$is_unix = ! ( ! $is_unix OR $is_unix === 'days');
+		$is_unix = ! ( ! $is_unix || $is_unix === 'days');
 
 		// Validate input and try strtotime() on invalid timestamps/intervals, just in case
 		if ( ( ! ctype_digit((string) $unix_start) && ($unix_start = @strtotime($unix_start)) === FALSE)
-			OR ( ! ctype_digit((string) $mixed) && ($is_unix === FALSE OR ($mixed = @strtotime($mixed)) === FALSE))
+			OR ( ! ctype_digit((string) $mixed) && ($is_unix === FALSE || ($mixed = @strtotime($mixed)) === FALSE))
 			OR ($is_unix === TRUE && $mixed < $unix_start))
 		{
 			return FALSE;
 		}
 
-		if ($is_unix && ($unix_start == $mixed OR date($format, $unix_start) === date($format, $mixed)))
+		if ($is_unix && ($unix_start == $mixed || date($format, $unix_start) === date($format, $mixed)))
 		{
 			return array(date($format, $unix_start));
 		}
@@ -728,7 +728,7 @@ if ( ! function_exists('date_range'))
 		}
 
 		/* If a period end date was passed to the DatePeriod constructor, it might not
-		 * be in our results. Not sure if this is a bug or it's just possible because
+		 * be in our results. Not sure if this is a bug || it's just possible because
 		 * the end date might actually be less than 24 hours away from the previously
 		 * generated DateTime object, but either way - we have to append it manually.
 		 */
