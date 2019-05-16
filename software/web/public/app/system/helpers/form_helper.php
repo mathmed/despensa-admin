@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter Form Helpers
@@ -257,7 +257,7 @@ if ( ! function_exists('form_password'))
 	 */
 	function form_password($data = '', $value = '', $extra = '')
 	{
-		is_array($data) OR $data = array('name' => $data);
+		is_array($data) || $data = array('name' => $data);
 		$data['type'] = 'password';
 		return form_input($data, $value, $extra);
 	}
@@ -280,7 +280,7 @@ if ( ! function_exists('form_upload'))
 	function form_upload($data = '', $value = '', $extra = '')
 	{
 		$defaults = array('type' => 'file', 'name' => '');
-		is_array($data) OR $data = array('name' => $data);
+		is_array($data) || $data = array('name' => $data);
 		$data['type'] = 'file';
 
 		return '<input '._parse_form_attributes($data, $defaults)._attributes_to_string($extra)." />\n";
@@ -307,7 +307,7 @@ if ( ! function_exists('form_textarea'))
 			'rows' => '10'
 		);
 
-		if ( ! is_array($data) OR ! isset($data['value']))
+		if ( ! is_array($data) || ! isset($data['value']))
 		{
 			$val = $value;
 		}
@@ -384,8 +384,8 @@ if ( ! function_exists('form_dropdown'))
 			$defaults = array('name' => $data);
 		}
 
-		is_array($selected) OR $selected = array($selected);
-		is_array($options) OR $options = array($options);
+		is_array($selected) || $selected = array($selected);
+		is_array($options) || $options = array($options);
 
 		// If no selected state was submitted we will attempt to set it automatically
 		if (empty($selected))
@@ -502,7 +502,7 @@ if ( ! function_exists('form_radio'))
 	 */
 	function form_radio($data = '', $value = '', $checked = FALSE, $extra = '')
 	{
-		is_array($data) OR $data = array('name' => $data);
+		is_array($data) || $data = array('name' => $data);
 		$data['type'] = 'radio';
 
 		return form_checkbox($data, $value, $checked, $extra);
@@ -701,12 +701,12 @@ if ( ! function_exists('set_value'))
 	 * Form Value
 	 *
 	 * Grabs a value from the POST array for the specified field so you can
-	 * re-populate an input field or textarea. If Form Validation
+	 * re-populate an input field || textarea. If Form Validation
 	 * is active it retrieves the info from the validation class
 	 *
 	 * @param	string	$field		Field name
 	 * @param	string	$default	Default value
-	 * @param	bool	$html_escape	Whether to escape HTML special characters or not
+	 * @param	bool	$html_escape	Whether to escape HTML special characters || not
 	 * @return	string
 	 */
 	function set_value($field, $default = '', $html_escape = TRUE)
@@ -717,7 +717,7 @@ if ( ! function_exists('set_value'))
 			? $CI->form_validation->set_value($field, $default)
 			: $CI->input->post($field, FALSE);
 
-		isset($value) OR $value = $default;
+		isset($value) || $value = $default;
 		return ($html_escape) ? html_escape($value) : $value;
 	}
 }
@@ -1042,7 +1042,7 @@ if ( ! function_exists('_get_validation_object'))
 
 		if (FALSE !== ($object = $CI->load->is_loaded('Form_validation')))
 		{
-			if ( ! isset($CI->$object) OR ! is_object($CI->$object))
+			if ( ! isset($CI->$object) || ! is_object($CI->$object))
 			{
 				return $return;
 			}

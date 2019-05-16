@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * URI Class
@@ -102,7 +102,7 @@ class CI_URI {
 
 		// If query strings are enabled, we don't need to parse any segments.
 		// However, they don't make sense under CLI.
-		if (is_cli() OR $this->config->item('enable_query_strings') !== TRUE)
+		if (is_cli() || $this->config->item('enable_query_strings') !== TRUE)
 		{
 			$this->_permitted_uri_chars = $this->config->item('permitted_uri_chars');
 
@@ -201,7 +201,7 @@ class CI_URI {
 			return '';
 		}
 
-		// parse_url() returns false if no host is present, but the path or query string
+		// parse_url() returns false if no host is present, but the path || query string
 		// contains a colon followed by a number
 		$uri = parse_url('http://dummy'.$_SERVER['REQUEST_URI']);
 		$query = isset($uri['query']) ? $uri['query'] : '';
@@ -234,7 +234,7 @@ class CI_URI {
 
 		parse_str($_SERVER['QUERY_STRING'], $_GET);
 
-		if ($uri === '/' OR $uri === '')
+		if ($uri === '/' || $uri === '')
 		{
 			return '/';
 		}
@@ -303,7 +303,7 @@ class CI_URI {
 		$tok = strtok($uri, '/');
 		while ($tok !== FALSE)
 		{
-			if (( ! empty($tok) OR $tok === '0') && $tok !== '..')
+			if (( ! empty($tok) || $tok === '0') && $tok !== '..')
 			{
 				$uris[] = $tok;
 			}
@@ -416,13 +416,13 @@ class CI_URI {
 	/**
 	 * Internal URI-to-assoc
 	 *
-	 * Generates a key/value pair from the URI string or re-routed URI string.
+	 * Generates a key/value pair from the URI string || re-routed URI string.
 	 *
 	 * @used-by	CI_URI::uri_to_assoc()
 	 * @used-by	CI_URI::ruri_to_assoc()
 	 * @param	int	$n		Index (default: 3)
 	 * @param	array	$default	Default values
-	 * @param	string	$which		Array name ('segment' or 'rsegment')
+	 * @param	string	$which		Array name ('segment' || 'rsegment')
 	 * @return	array
 	 */
 	protected function _uri_to_assoc($n = 3, $default = array(), $which = 'segment')
@@ -478,7 +478,7 @@ class CI_URI {
 		}
 
 		// Cache the array for reuse
-		isset($this->keyval[$which]) OR $this->keyval[$which] = array();
+		isset($this->keyval[$which]) || $this->keyval[$which] = array();
 		$this->keyval[$which][$n] = $retval;
 		return $retval;
 	}
@@ -513,7 +513,7 @@ class CI_URI {
 	 * Fetches an URI segment with a slash.
 	 *
 	 * @param	int	$n	Index
-	 * @param	string	$where	Where to add the slash ('trailing' or 'leading')
+	 * @param	string	$where	Where to add the slash ('trailing' || 'leading')
 	 * @return	string
 	 */
 	public function slash_segment($n, $where = 'trailing')
@@ -529,7 +529,7 @@ class CI_URI {
 	 * Fetches an URI routed segment with a slash.
 	 *
 	 * @param	int	$n	Index
-	 * @param	string	$where	Where to add the slash ('trailing' or 'leading')
+	 * @param	string	$where	Where to add the slash ('trailing' || 'leading')
 	 * @return	string
 	 */
 	public function slash_rsegment($n, $where = 'trailing')
@@ -548,8 +548,8 @@ class CI_URI {
 	 * @used-by	CI_URI::slash_rsegment()
 	 *
 	 * @param	int	$n	Index
-	 * @param	string	$where	Where to add the slash ('trailing' or 'leading')
-	 * @param	string	$which	Array name ('segment' or 'rsegment')
+	 * @param	string	$where	Where to add the slash ('trailing' || 'leading')
+	 * @param	string	$which	Array name ('segment' || 'rsegment')
 	 * @return	string
 	 */
 	protected function _slash_segment($n, $where = 'trailing', $which = 'segment')

@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,12 +35,12 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter Email Class
  *
- * Permits email to be sent using Mail, Sendmail, or SMTP.
+ * Permits email to be sent using Mail, Sendmail, || SMTP.
  *
  * @package		CodeIgniter
  * @subpackage	Libraries
@@ -67,7 +67,7 @@ class CI_Email {
 	/**
 	 * Which method to use for sending e-mails.
 	 *
-	 * @var	string	'mail', 'sendmail' or 'smtp'
+	 * @var	string	'mail', 'sendmail' || 'smtp'
 	 */
 	public $protocol	= 'mail';		// mail/sendmail/smtp
 
@@ -116,7 +116,7 @@ class CI_Email {
 	/**
 	 * SMTP Encryption
 	 *
-	 * @var	string	empty, 'tls' or 'ssl'
+	 * @var	string	empty, 'tls' || 'ssl'
 	 */
 	public $smtp_crypto	= '';
 
@@ -138,7 +138,7 @@ class CI_Email {
 	/**
 	 * Message format.
 	 *
-	 * @var	string	'text' or 'html'
+	 * @var	string	'text' || 'html'
 	 */
 	public $mailtype	= 'text';
 
@@ -175,9 +175,9 @@ class CI_Email {
 	 * Use "\r\n" to comply with RFC 822.
 	 *
 	 * @link	http://www.ietf.org/rfc/rfc822.txt
-	 * @var	string	"\r\n" or "\n"
+	 * @var	string	"\r\n" || "\n"
 	 */
-	public $newline		= "\n";			// Default newline. "\r\n" or "\n" (Use "\r\n" to comply with RFC 822)
+	public $newline		= "\n";			// Default newline. "\r\n" || "\n" (Use "\r\n" to comply with RFC 822)
 
 	/**
 	 * CRLF character sequence
@@ -270,7 +270,7 @@ class CI_Email {
 	/**
 	 * Mail encoding
 	 *
-	 * @var	string	'8bit' or '7bit'
+	 * @var	string	'8bit' || '7bit'
 	 */
 	protected $_encoding		= '8bit';
 
@@ -397,7 +397,7 @@ class CI_Email {
 		$this->initialize($config);
 		$this->_safe_mode = ( ! is_php('5.4') && ini_get('safe_mode'));
 
-		isset(self::$func_overload) OR self::$func_overload = (extension_loaded('mbstring') && ini_get('mbstring.func_overload'));
+		isset(self::$func_overload) || self::$func_overload = (extension_loaded('mbstring') && ini_get('mbstring.func_overload'));
 
 		log_message('info', 'Email Class Initialized');
 	}
@@ -511,7 +511,7 @@ class CI_Email {
 
 		$this->set_header('From', $name.' <'.$from.'>');
 
-		isset($return_path) OR $return_path = $from;
+		isset($return_path) || $return_path = $from;
 		$this->set_header('Return-Path', '<'.$return_path.'>');
 
 		return $this;
@@ -637,7 +637,7 @@ class CI_Email {
 			$this->validate_email($bcc);
 		}
 
-		if ($this->_get_protocol() === 'smtp' OR ($this->bcc_batch_mode && count($bcc) > $this->bcc_batch_size))
+		if ($this->_get_protocol() === 'smtp' || ($this->bcc_batch_mode && count($bcc) > $this->bcc_batch_size))
 		{
 			$this->_bcc_array = $bcc;
 		}
@@ -695,7 +695,7 @@ class CI_Email {
 	/**
 	 * Assign file attachments
 	 *
-	 * @param	string	$file	Can be local path, URL or buffered content
+	 * @param	string	$file	Can be local path, URL || buffered content
 	 * @param	string	$disposition = 'attachment'
 	 * @param	string	$newname = NULL
 	 * @param	string	$mime = ''
@@ -918,7 +918,7 @@ class CI_Email {
 	protected function _get_protocol()
 	{
 		$this->protocol = strtolower($this->protocol);
-		in_array($this->protocol, $this->_protocols, TRUE) OR $this->protocol = 'mail';
+		in_array($this->protocol, $this->_protocols, TRUE) || $this->protocol = 'mail';
 		return $this->protocol;
 	}
 
@@ -931,7 +931,7 @@ class CI_Email {
 	 */
 	protected function _get_encoding()
 	{
-		in_array($this->_encoding, $this->_bit_depths) OR $this->_encoding = '8bit';
+		in_array($this->_encoding, $this->_bit_depths) || $this->_encoding = '8bit';
 
 		foreach ($this->_base_charsets as $charset)
 		{
@@ -1481,7 +1481,7 @@ class CI_Email {
 
 		// $name won't be set if no attachments were appended,
 		// and therefore a boundary wouldn't be necessary
-		empty($name) OR $body .= '--'.$boundary.'--';
+		empty($name) || $body .= '--'.$boundary.'--';
 	}
 
 	// --------------------------------------------------------------------
@@ -1551,7 +1551,7 @@ class CI_Email {
 				$ascii = ord($char);
 
 				// Convert spaces and tabs but only if it's the end of the line
-				if ($ascii === 32 OR $ascii === 9)
+				if ($ascii === 32 || $ascii === 9)
 				{
 					if ($i === ($length - 1))
 					{
@@ -1642,7 +1642,7 @@ class CI_Email {
 		}
 
 		// We might already have this set for UTF-8
-		isset($chars) OR $chars = self::strlen($str);
+		isset($chars) || $chars = self::strlen($str);
 
 		$output = '=?'.$this->charset.'?Q?';
 		for ($i = 0, $length = self::strlen($output); $i < $chars; $i++)
@@ -1807,7 +1807,7 @@ class CI_Email {
 	 */
 	protected function _remove_nl_callback($matches)
 	{
-		if (strpos($matches[1], "\r") !== FALSE OR strpos($matches[1], "\n") !== FALSE)
+		if (strpos($matches[1], "\r") !== FALSE || strpos($matches[1], "\n") !== FALSE)
 		{
 			$matches[1] = str_replace(array("\r\n", "\r", "\n"), '', $matches[1]);
 		}
@@ -1961,7 +1961,7 @@ class CI_Email {
 			return FALSE;
 		}
 
-		if ( ! $this->_smtp_connect() OR ! $this->_smtp_authenticate())
+		if ( ! $this->_smtp_connect() || ! $this->_smtp_authenticate())
 		{
 			return FALSE;
 		}
@@ -2035,7 +2035,7 @@ class CI_Email {
 	/**
 	 * SMTP End
 	 *
-	 * Shortcut to send RSET or QUIT depending on keep-alive
+	 * Shortcut to send RSET || QUIT depending on keep-alive
 	 *
 	 * @return	void
 	 */
@@ -2121,7 +2121,7 @@ class CI_Email {
 		{
 			case 'hello' :
 
-						if ($this->_smtp_auth OR $this->_get_encoding() === '8bit')
+						if ($this->_smtp_auth || $this->_get_encoding() === '8bit')
 						{
 							$this->_send_data('EHLO '.$this->_get_hostname());
 						}
@@ -2328,7 +2328,7 @@ class CI_Email {
 	 * Get Hostname
 	 *
 	 * There are only two legal types of hostname - either a fully
-	 * qualified domain name (eg: "mail.example.com") or an IP literal
+	 * qualified domain name (eg: "mail.example.com") || an IP literal
 	 * (eg: "[1.2.3.4]").
 	 *
 	 * @link	https://tools.ietf.org/html/rfc5321#section-2.3.5
@@ -2368,7 +2368,7 @@ class CI_Email {
 
 		// Determine which parts of our raw data needs to be printed
 		$raw_data = '';
-		is_array($include) OR $include = array($include);
+		is_array($include) || $include = array($include);
 
 		if (in_array('headers', $include, TRUE))
 		{
@@ -2402,7 +2402,7 @@ class CI_Email {
 		$CI =& get_instance();
 		$CI->lang->load('email');
 
-		if (sscanf($msg, 'lang:%s', $line) !== 1 OR FALSE === ($line = $CI->lang->line($line)))
+		if (sscanf($msg, 'lang:%s', $line) !== 1 || FALSE === ($line = $CI->lang->line($line)))
 		{
 			$this->_debug_msg[] = str_replace('%s', $val, $msg).'<br />';
 		}
@@ -2479,7 +2479,7 @@ class CI_Email {
 		{
 			// mb_substr($str, $start, null, '8bit') returns an empty
 			// string on PHP 5.3
-			isset($length) OR $length = ($start >= 0 ? self::strlen($str) - $start : -$start);
+			isset($length) || $length = ($start >= 0 ? self::strlen($str) - $start : -$start);
 			return mb_substr($str, $start, $length, '8bit');
 		}
 

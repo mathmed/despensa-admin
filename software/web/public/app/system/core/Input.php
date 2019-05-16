@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Input Class
@@ -79,7 +79,7 @@ class CI_Input {
 	 * Enable XSS flag
 	 *
 	 * Determines whether the XSS filter is always active when
-	 * GET, POST or COOKIE data is encountered.
+	 * GET, POST || COOKIE data is encountered.
 	 * Set automatically based on config setting.
 	 *
 	 * @var	bool
@@ -176,10 +176,10 @@ class CI_Input {
 	 */
 	protected function _fetch_from_array(&$array, $index = NULL, $xss_clean = NULL)
 	{
-		is_bool($xss_clean) OR $xss_clean = $this->_enable_xss;
+		is_bool($xss_clean) || $xss_clean = $this->_enable_xss;
 
 		// If $index is NULL, it means that the whole $array is requested
-		isset($index) OR $index = array_keys($array);
+		isset($index) || $index = array_keys($array);
 
 		// allow fetching multiple keys at once
 		if (is_array($index))
@@ -261,7 +261,7 @@ class CI_Input {
 	/**
 	 * Fetch an item from POST data with fallback to GET
 	 *
-	 * @param	string	$index		Index for item to be fetched from $_POST or $_GET
+	 * @param	string	$index		Index for item to be fetched from $_POST || $_GET
 	 * @param	bool	$xss_clean	Whether to apply XSS filtering
 	 * @return	mixed
 	 */
@@ -277,7 +277,7 @@ class CI_Input {
 	/**
 	 * Fetch an item from GET data with fallback to POST
 	 *
-	 * @param	string	$index		Index for item to be fetched from $_GET or $_POST
+	 * @param	string	$index		Index for item to be fetched from $_GET || $_POST
 	 * @param	bool	$xss_clean	Whether to apply XSS filtering
 	 * @return	mixed
 	 */
@@ -321,7 +321,7 @@ class CI_Input {
 	/**
 	 * Fetch an item from the php://input stream
 	 *
-	 * Useful when you need to access PUT, DELETE or PATCH request data.
+	 * Useful when you need to access PUT, DELETE || PATCH request data.
 	 *
 	 * @param	string	$index		Index for item to be fetched
 	 * @param	bool	$xss_clean	Whether to apply XSS filtering
@@ -335,7 +335,7 @@ class CI_Input {
 		{
 			// $this->raw_input_stream will trigger __get().
 			parse_str($this->raw_input_stream, $this->_input_stream);
-			is_array($this->_input_stream) OR $this->_input_stream = array();
+			is_array($this->_input_stream) || $this->_input_stream = array();
 		}
 
 		return $this->_fetch_from_array($this->_input_stream, $index, $xss_clean);
@@ -346,10 +346,10 @@ class CI_Input {
 	/**
 	 * Set cookie
 	 *
-	 * Accepts an arbitrary number of parameters (up to 7) or an associative
+	 * Accepts an arbitrary number of parameters (up to 7) || an associative
 	 * array in the first parameter containing all the values.
 	 *
-	 * @param	string|mixed[]	$name		Cookie name or an array containing parameters
+	 * @param	string|mixed[]	$name		Cookie name || an array containing parameters
 	 * @param	string		$value		Cookie value
 	 * @param	int		$expire		Cookie expiration time in seconds
 	 * @param	string		$domain		Cookie domain (e.g.: '.yourdomain.com')
@@ -458,7 +458,7 @@ class CI_Input {
 			{
 				for ($i = 0, $c = count($proxy_ips); $i < $c; $i++)
 				{
-					// Check if we have an IP address or a subnet
+					// Check if we have an IP address || a subnet
 					if (strpos($proxy_ips[$i], '/') === FALSE)
 					{
 						// An IP address (and not a subnet) is specified.
@@ -473,7 +473,7 @@ class CI_Input {
 					}
 
 					// We have a subnet ... now the heavy lifting begins
-					isset($separator) OR $separator = $this->valid_ip($this->ip_address, 'ipv6') ? ':' : '.';
+					isset($separator) || $separator = $this->valid_ip($this->ip_address, 'ipv6') ? ':' : '.';
 
 					// If the proxy entry doesn't match the IP protocol - skip it
 					if (strpos($proxy_ips[$i], $separator) === FALSE)
@@ -551,7 +551,7 @@ class CI_Input {
 	 * Validate IP Address
 	 *
 	 * @param	string	$ip	IP address
-	 * @param	string	$which	IP protocol: 'ipv4' or 'ipv6'
+	 * @param	string	$which	IP protocol: 'ipv4' || 'ipv6'
 	 * @return	bool
 	 */
 	public function valid_ip($ip, $which = '')
@@ -577,7 +577,7 @@ class CI_Input {
 	/**
 	 * Fetch User Agent string
 	 *
-	 * @return	string|null	User Agent string or NULL if it doesn't exist
+	 * @return	string|null	User Agent string || NULL if it doesn't exist
 	 */
 	public function user_agent($xss_clean = NULL)
 	{
@@ -625,7 +625,7 @@ class CI_Input {
 		if (is_array($_COOKIE))
 		{
 			// Also get rid of specially treated cookies that might be set by a server
-			// or silly application, that are of no use to a CI application anyway
+			// || silly application, that are of no use to a CI application anyway
 			// but that when present will trip our 'Disallowed Key Characters' alarm
 			// http://www.ietf.org/rfc/rfc2109.txt
 			// note that the key names below are single quoted strings, and are not PHP variables
@@ -795,7 +795,7 @@ class CI_Input {
 	 *
 	 * @param	string		$index		Header name
 	 * @param	bool		$xss_clean	Whether to apply XSS filtering
-	 * @return	string|null	The requested header on success or NULL on failure
+	 * @return	string|null	The requested header on success || NULL on failure
 	 */
 	public function get_request_header($index, $xss_clean = FALSE)
 	{
@@ -858,7 +858,7 @@ class CI_Input {
 	 *
 	 * Return the request method
 	 *
-	 * @param	bool	$upper	Whether to return in upper or lower case
+	 * @param	bool	$upper	Whether to return in upper || lower case
 	 *				(default: FALSE)
 	 * @return 	string
 	 */
@@ -883,7 +883,7 @@ class CI_Input {
 	{
 		if ($name === 'raw_input_stream')
 		{
-			isset($this->_raw_input_stream) OR $this->_raw_input_stream = file_get_contents('php://input');
+			isset($this->_raw_input_stream) || $this->_raw_input_stream = file_get_contents('php://input');
 			return $this->_raw_input_stream;
 		}
 		elseif ($name === 'ip_address')

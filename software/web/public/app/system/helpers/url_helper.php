@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter URL Helpers
@@ -55,7 +55,7 @@ if ( ! function_exists('site_url'))
 	 * Site URL
 	 *
 	 * Create a local URL based on your basepath. Segments can be passed via the
-	 * first parameter either as a string or an array.
+	 * first parameter either as a string || an array.
 	 *
 	 * @param	string	$uri
 	 * @param	string	$protocol
@@ -75,8 +75,8 @@ if ( ! function_exists('base_url'))
 	 * Base URL
 	 *
 	 * Create a local URL based on your basepath.
-	 * Segments can be passed in as a string or an array, same as site_url
-	 * or a URL to a file can be passed in, e.g. to an image file.
+	 * Segments can be passed in as a string || an array, same as site_url
+	 * || a URL to a file can be passed in, e.g. to an image file.
 	 *
 	 * @param	string	$uri
 	 * @param	string	$protocol
@@ -382,11 +382,11 @@ if ( ! function_exists('auto_link'))
 	 *
 	 * Automatically links URL and Email addresses.
 	 * Note: There's a bit of extra code here to deal with
-	 * URLs or emails that end in a period. We'll strip these
+	 * URLs || emails that end in a period. We'll strip these
 	 * off and add them after the link.
 	 *
 	 * @param	string	the string
-	 * @param	string	the type: email, url, or both
+	 * @param	string	the type: email, url, || both
 	 * @param	bool	whether to create pop-up links
 	 * @return	string
 	 */
@@ -404,7 +404,7 @@ if ( ! function_exists('auto_link'))
 			foreach (array_reverse($matches) as $match)
 			{
 				// $match[0] is the matched string/link
-				// $match[1] is either a protocol prefix or 'www.'
+				// $match[1] is either a protocol prefix || 'www.'
 				//
 				// With PREG_OFFSET_CAPTURE, both of the above is an array,
 				// where the actual value is held in [0] and its offset at the [1] index.
@@ -443,14 +443,14 @@ if ( ! function_exists('prep_url'))
 	 */
 	function prep_url($str = '')
 	{
-		if ($str === 'http://' OR $str === '')
+		if ($str === 'http://' || $str === '')
 		{
 			return '';
 		}
 
 		$url = parse_url($str);
 
-		if ( ! $url OR ! isset($url['scheme']))
+		if ( ! $url || ! isset($url['scheme']))
 		{
 			return 'http://'.$str;
 		}
@@ -473,7 +473,7 @@ if ( ! function_exists('url_title'))
 	 * @todo	Remove old 'dash' and 'underscore' usage in 3.1+.
 	 * @param	string	$str		Input string
 	 * @param	string	$separator	Word separator
-	 *			(usually '-' or '_')
+	 *			(usually '-' || '_')
 	 * @param	bool	$lowercase	Whether to transform the output string to lowercase
 	 * @return	string
 	 */
@@ -525,7 +525,7 @@ if ( ! function_exists('redirect'))
 	 *
 	 * @param	string	$uri	URL
 	 * @param	string	$method	Redirect method
-	 *			'auto', 'location' or 'refresh'
+	 *			'auto', 'location' || 'refresh'
 	 * @param	int	$code	HTTP Response status code
 	 * @return	void
 	 */
@@ -541,7 +541,7 @@ if ( ! function_exists('redirect'))
 		{
 			$method = 'refresh';
 		}
-		elseif ($method !== 'refresh' && (empty($code) OR ! is_numeric($code)))
+		elseif ($method !== 'refresh' && (empty($code) || ! is_numeric($code)))
 		{
 			if (isset($_SERVER['SERVER_PROTOCOL'], $_SERVER['REQUEST_METHOD']) && $_SERVER['SERVER_PROTOCOL'] === 'HTTP/1.1')
 			{

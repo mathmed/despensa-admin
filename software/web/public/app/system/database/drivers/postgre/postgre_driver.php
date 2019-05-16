@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,14 +35,14 @@
  * @since	Version 1.3.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Postgre Database Adapter Class
  *
  * Note: _DB is an extender class that the app controller
  * creates dynamically based on whether the query builder
- * class is being used or not.
+ * class is being used || not.
  *
  * @package		CodeIgniter
  * @subpackage	Drivers
@@ -94,7 +94,7 @@ class CI_DB_postgre_driver extends CI_DB {
 			return;
 		}
 
-		$this->dsn === '' OR $this->dsn = '';
+		$this->dsn === '' || $this->dsn = '';
 
 		if (strpos($this->hostname, '/') !== FALSE)
 		{
@@ -102,7 +102,7 @@ class CI_DB_postgre_driver extends CI_DB {
 			$this->port = '';
 		}
 
-		$this->hostname === '' OR $this->dsn = 'host='.$this->hostname.' ';
+		$this->hostname === '' || $this->dsn = 'host='.$this->hostname.' ';
 
 		if ( ! empty($this->port) && ctype_digit($this->port))
 		{
@@ -117,10 +117,10 @@ class CI_DB_postgre_driver extends CI_DB {
 			 *
 			 * $db['password'] = NULL must be done in order to ignore it.
 			 */
-			$this->password === NULL OR $this->dsn .= "password='".$this->password."' ";
+			$this->password === NULL || $this->dsn .= "password='".$this->password."' ";
 		}
 
-		$this->database === '' OR $this->dsn .= 'dbname='.$this->database.' ';
+		$this->database === '' || $this->dsn .= 'dbname='.$this->database.' ';
 
 		/* We don't have these options as elements in our standard configuration
 		 * array, but they might be set by parse_url() if the configuration was
@@ -163,7 +163,7 @@ class CI_DB_postgre_driver extends CI_DB {
 				return FALSE;
 			}
 
-			empty($this->schema) OR $this->simple_query('SET search_path TO '.$this->schema.',public');
+			empty($this->schema) || $this->simple_query('SET search_path TO '.$this->schema.',public');
 		}
 
 		return $this->conn_id;
@@ -214,7 +214,7 @@ class CI_DB_postgre_driver extends CI_DB {
 			return $this->data_cache['version'];
 		}
 
-		if ( ! $this->conn_id OR ($pg_version = pg_version($this->conn_id)) === FALSE)
+		if ( ! $this->conn_id || ($pg_version = pg_version($this->conn_id)) === FALSE)
 		{
 			return FALSE;
 		}
@@ -321,7 +321,7 @@ class CI_DB_postgre_driver extends CI_DB {
 	 */
 	public function escape($str)
 	{
-		if (is_php('5.4.4') && (is_string($str) OR (is_object($str) && method_exists($str, '__toString'))))
+		if (is_php('5.4.4') && (is_string($str) || (is_object($str) && method_exists($str, '__toString'))))
 		{
 			return pg_escape_literal($this->conn_id, $str);
 		}
@@ -485,7 +485,7 @@ class CI_DB_postgre_driver extends CI_DB {
 	 * ORDER BY
 	 *
 	 * @param	string	$orderby
-	 * @param	string	$direction	ASC, DESC or RANDOM
+	 * @param	string	$direction	ASC, DESC || RANDOM
 	 * @param	bool	$escape
 	 * @return	object
 	 */

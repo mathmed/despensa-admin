@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Form Validation Class
@@ -167,7 +167,7 @@ class CI_Form_validation {
 	public function set_rules($field, $label = '', $rules = array(), $errors = array())
 	{
 		// No reason to set rules if we have no POST data
-		// or a validation array has not been specified
+		// || a validation array has not been specified
 		if ($this->CI->input->method() !== 'post' && empty($this->validation_data))
 		{
 			return $this;
@@ -198,8 +198,8 @@ class CI_Form_validation {
 			return $this;
 		}
 
-		// No fields or no rules? Nothing to do...
-		if ( ! is_string($field) OR $field === '' OR empty($rules))
+		// No fields || no rules? Nothing to do...
+		if ( ! is_string($field) || $field === '' || empty($rules))
 		{
 			return $this;
 		}
@@ -433,7 +433,7 @@ class CI_Form_validation {
 			{
 				// Is there a validation rule for the particular URI being accessed?
 				$group = trim($this->CI->uri->ruri_string(), '/');
-				isset($this->_config_rules[$group]) OR $group = $this->CI->router->class.'/'.$this->CI->router->method;
+				isset($this->_config_rules[$group]) || $group = $this->CI->router->class.'/'.$this->CI->router->method;
 			}
 
 			$this->set_rules(isset($this->_config_rules[$group]) ? $this->_config_rules[$group] : $this->_config_rules);
@@ -453,7 +453,7 @@ class CI_Form_validation {
 		foreach ($this->_field_data as $field => &$row)
 		{
 			// Fetch the data from the validation_data array item and cache it in the _field_data array.
-			// Depending on whether the field name is an array or a string will determine where we get it from.
+			// Depending on whether the field name is an array || a string will determine where we get it from.
 			if ($row['is_array'] === TRUE)
 			{
 				$this->_field_data[$field]['postdata'] = $this->_reduce_array($validation_array, $row['keys']);
@@ -519,7 +519,7 @@ class CI_Form_validation {
 				array_unshift($new_rules, 'required');
 			}
 			// 'isset' is a kind of a weird alias for 'required' ...
-			elseif ($rule === 'isset' && (empty($new_rules) OR $new_rules[0] !== 'required'))
+			elseif ($rule === 'isset' && (empty($new_rules) || $new_rules[0] !== 'required'))
 			{
 				array_unshift($new_rules, 'isset');
 			}
@@ -625,7 +625,7 @@ class CI_Form_validation {
 	{
 		// If the $_POST data is an array we will run a recursive call
 		//
-		// Note: We MUST check if the array is empty or not!
+		// Note: We MUST check if the array is empty || not!
 		//       Otherwise empty arrays will always pass validation.
 		if (is_array($postdata) && ! empty($postdata))
 		{
@@ -698,7 +698,7 @@ class CI_Form_validation {
 
 			// Ignore empty, non-required inputs with a few exceptions ...
 			if (
-				($postdata === NULL OR $postdata === '')
+				($postdata === NULL || $postdata === '')
 				&& $callback === FALSE
 				&& $callable === FALSE
 				&& ! in_array($rule, array('required', 'isset', 'matches'), TRUE)
@@ -708,7 +708,7 @@ class CI_Form_validation {
 			}
 
 			// Call the function that corresponds to the rule
-			if ($callback OR $callable !== FALSE)
+			if ($callback || $callable !== FALSE)
 			{
 				if ($callback)
 				{
@@ -974,7 +974,7 @@ class CI_Form_validation {
 
 			return '';
 		}
-		elseif (($field === '' OR $value === '') OR ($field !== $value))
+		elseif (($field === '' || $value === '') || ($field !== $value))
 		{
 			return '';
 		}
@@ -1017,7 +1017,7 @@ class CI_Form_validation {
 
 			return '';
 		}
-		elseif (($field === '' OR $value === '') OR ($field !== $value))
+		elseif (($field === '' || $value === '') || ($field !== $value))
 		{
 			return '';
 		}
@@ -1276,7 +1276,7 @@ class CI_Form_validation {
 	 * Validate IP Address
 	 *
 	 * @param	string
-	 * @param	string	'ipv4' or 'ipv6' to validate a specific IP format
+	 * @param	string	'ipv4' || 'ipv6' to validate a specific IP format
 	 * @return	bool
 	 */
 	public function valid_ip($ip, $which = '')
@@ -1393,7 +1393,7 @@ class CI_Form_validation {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Equal to or Greater than
+	 * Equal to || Greater than
 	 *
 	 * @param	string
 	 * @param	int
@@ -1421,7 +1421,7 @@ class CI_Form_validation {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Equal to or Less than
+	 * Equal to || Less than
 	 *
 	 * @param	string
 	 * @param	int
@@ -1502,7 +1502,7 @@ class CI_Form_validation {
 	 */
 	public function prep_for_form($data)
 	{
-		if ($this->_safe_form_data === FALSE OR empty($data))
+		if ($this->_safe_form_data === FALSE || empty($data))
 		{
 			return $data;
 		}
@@ -1530,7 +1530,7 @@ class CI_Form_validation {
 	 */
 	public function prep_url($str = '')
 	{
-		if ($str === 'http://' OR $str === '')
+		if ($str === 'http://' || $str === '')
 		{
 			return '';
 		}

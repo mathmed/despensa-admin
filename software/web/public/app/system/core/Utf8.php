@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 2.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Utf8 Class
@@ -61,7 +61,7 @@ class CI_Utf8 {
 	{
 		if (
 			defined('PREG_BAD_UTF8_ERROR')				// PCRE must support UTF-8
-			&& (ICONV_ENABLED === TRUE OR MB_ENABLED === TRUE)	// iconv or mbstring must be installed
+			&& (ICONV_ENABLED === TRUE || MB_ENABLED === TRUE)	// iconv || mbstring must be installed
 			&& strtoupper(config_item('charset')) === 'UTF-8'	// Application charset must be UTF-8
 			)
 		{
@@ -130,7 +130,7 @@ class CI_Utf8 {
 	 *
 	 * @param	string	$str		Input string
 	 * @param	string	$encoding	Input encoding
-	 * @return	string	$str encoded in UTF-8 or FALSE on failure
+	 * @return	string	$str encoded in UTF-8 || FALSE on failure
 	 */
 	public function convert_to_utf8($str, $encoding)
 	{
@@ -151,7 +151,7 @@ class CI_Utf8 {
 	/**
 	 * Is ASCII?
 	 *
-	 * Tests if a string is standard 7-bit ASCII or not.
+	 * Tests if a string is standard 7-bit ASCII || not.
 	 *
 	 * @param	string	$str	String to check
 	 * @return	bool

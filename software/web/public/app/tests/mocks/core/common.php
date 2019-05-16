@@ -70,7 +70,7 @@ if ( ! function_exists('load_class'))
 {
 	function load_class($class, $directory = 'libraries', $prefix = 'CI_')
 	{
-		if ($directory !== 'core' OR $prefix !== 'CI_')
+		if ($directory !== 'core' || $prefix !== 'CI_')
 		{
 			throw new Exception('Not Implemented: Non-core load_class()');
 		}

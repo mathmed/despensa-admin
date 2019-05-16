@@ -24,7 +24,7 @@ class Mock_Libraries_Session_cookie extends CI_Session_cookie {
 	 */
 	protected function _setcookie($name, $value = '', $expire = 0, $path = '', $domain = '', $secure = FALSE, $httponly = FALSE)
 	{
-		if (empty($value) OR $expire <= time())
+		if (empty($value) || $expire <= time())
 		{
 			unset($_COOKIE[$name]);
 		}

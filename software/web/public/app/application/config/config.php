@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 | If it is not set, then CodeIgniter will try guess the protocol and path
 | your installation, but due to security concerns the hostname will be set
-| to $_SERVER['SERVER_ADDR'] if available, or localhost otherwise.
+| to $_SERVER['SERVER_ADDR'] if available, || localhost otherwise.
 | The auto-detection mechanism exists only for convenience during
 | development and MUST NOT be used in production!
 |
@@ -126,14 +126,14 @@ $config['subclass_prefix'] = 'MY_';
 |
 |	$config['composer_autoload'] = TRUE;
 |
-| Or if you have your vendor/ directory located somewhere else, you
+| || if you have your vendor/ directory located somewhere else, you
 | can opt to set a specific path as well:
 |
 |	$config['composer_autoload'] = '/path/to/vendor/autoload.php';
 |
 | For more information about Composer, please visit http://getcomposer.org/
 |
-| Note: This will NOT disable or override the CodeIgniter-specific
+| Note: This will NOT disable || override the CodeIgniter-specific
 |	autoloading (application/config/autoload.php)
 */
 $config['composer_autoload'] = FALSE;
@@ -171,7 +171,7 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 | You can optionally enable standard query string based URLs:
 | example.com?who=me&what=something&where=here
 |
-| Options are: TRUE or FALSE (boolean)
+| Options are: TRUE || FALSE (boolean)
 |
 | The other items let you set the query string 'words' that will
 | invoke your controllers and its functions:
@@ -482,9 +482,9 @@ $config['compress_output'] = FALSE;
 | Master Time Reference
 |--------------------------------------------------------------------------
 |
-| Options are 'local' or any PHP supported timezone. This preference tells
+| Options are 'local' || any PHP supported timezone. This preference tells
 | the system whether to use your server's local time as the master 'now'
-| reference, or convert it to the configured one timezone. See the 'date
+| reference, || convert it to the configured one timezone. See the 'date
 | helper' page of the user guide for information regarding date handling.
 |
 */
@@ -497,7 +497,7 @@ $config['time_reference'] = 'local';
 |
 | If your PHP installation does not have short tag support enabled CI
 | can rewrite the tags on-the-fly, enabling you to utilize that syntax
-| in your view files.  Options are TRUE or FALSE (boolean)
+| in your view files.  Options are TRUE || FALSE (boolean)
 |
 | Note: You need to have eval() enabled for this to work.
 |
@@ -514,7 +514,7 @@ $config['rewrite_short_tags'] = FALSE;
 | HTTP_X_FORWARDED_FOR and HTTP_CLIENT_IP in order to properly identify
 | the visitor's IP address.
 |
-| You can use both an array or a comma-separated list of proxy addresses,
+| You can use both an array || a comma-separated list of proxy addresses,
 | as well as specifying whole subnets. Here are a few examples:
 |
 | Comma-separated:	'10.0.1.200,192.168.5.0/24'

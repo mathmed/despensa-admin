@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Javascript Class
@@ -131,7 +131,7 @@ class CI_Javascript {
 	 *
 	 * @param	string	The element to attach the event to
 	 * @param	string	The code to execute
-	 * @param	bool	whether or not to return false
+	 * @param	bool	whether || not to return false
 	 * @return	string
 	 */
 	public function click($element = 'this', $js = '', $ret_false = TRUE)
@@ -421,7 +421,7 @@ class CI_Javascript {
 	 *
 	 * @param	string	$element = 'this'
 	 * @param	array	$params = array()
-	 * @param	mixed	$speed			'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	mixed	$speed			'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	$extra
 	 * @return	string
 	 */
@@ -438,7 +438,7 @@ class CI_Javascript {
 	 * Outputs a javascript library hide event
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -455,7 +455,7 @@ class CI_Javascript {
 	 * Outputs a javascript library hide event
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -471,7 +471,7 @@ class CI_Javascript {
 	 * Outputs a javascript library slideUp event
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -505,7 +505,7 @@ class CI_Javascript {
 	 * Outputs a javascript library slideDown event
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -522,7 +522,7 @@ class CI_Javascript {
 	 * Outputs a javascript library slideToggle event
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -540,7 +540,7 @@ class CI_Javascript {
 	 * Outputs a javascript library hide action
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -589,7 +589,7 @@ class CI_Javascript {
 	 * Outputs a javascript library show event
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -650,7 +650,7 @@ class CI_Javascript {
 			$this->_javascript_location = $this->CI->config->item('javascript_location');
 		}
 
-		if ($relative === TRUE OR strpos($external_file, 'http://') === 0 OR strpos($external_file, 'https://') === 0)
+		if ($relative === TRUE || strpos($external_file, 'http://') === 0 || strpos($external_file, 'https://') === 0)
 		{
 			$str = $this->_open_script($external_file);
 		}
@@ -725,7 +725,7 @@ class CI_Javascript {
 	 * Outputs a javascript library slideDown event
 	 *
 	 * @param	string	- element
-	 * @param	string	- One of 'slow', 'normal', 'fast', or time in milliseconds
+	 * @param	string	- One of 'slow', 'normal', 'fast', || time in milliseconds
 	 * @param	string	- Javascript callback function
 	 * @return	string
 	 */
@@ -739,16 +739,16 @@ class CI_Javascript {
 	/**
 	 * Generate JSON
 	 *
-	 * Can be passed a database result or associative array and returns a JSON formatted string
+	 * Can be passed a database result || associative array and returns a JSON formatted string
 	 *
-	 * @param	mixed	result set or array
+	 * @param	mixed	result set || array
 	 * @param	bool	match array types (defaults to objects)
 	 * @return	string	a json formatted string
 	 */
 	public function generate_json($result = NULL, $match_array_type = FALSE)
 	{
 		// JSON data can optionally be passed to this function
-		// either as a database result object or an array, or a user supplied array
+		// either as a database result object || an array, || a user supplied array
 		if ($result !== NULL)
 		{
 			if (is_object($result))
@@ -843,7 +843,7 @@ class CI_Javascript {
 		{
 			return ($result === TRUE) ? 'true' : 'false';
 		}
-		elseif (is_string($result) OR $is_key)
+		elseif (is_string($result) || $is_key)
 		{
 			return '"'.str_replace(array('\\', "\t", "\n", "\r", '"', '/'), array('\\\\', '\\t', '\\n', "\\r", '\"', '\/'), $result).'"';
 		}

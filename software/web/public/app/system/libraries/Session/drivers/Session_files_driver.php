@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 3.0.0
  * @filesource
 */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter Session Files Driver
@@ -115,7 +115,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 
 		$this->_sid_regexp = $this->_config['_sid_regexp'];
 
-		isset(self::$func_overload) OR self::$func_overload = (extension_loaded('mbstring') && ini_get('mbstring.func_overload'));
+		isset(self::$func_overload) || self::$func_overload = (extension_loaded('mbstring') && ini_get('mbstring.func_overload'));
 	}
 
 	// ------------------------------------------------------------------------
@@ -135,7 +135,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 		{
 			if ( ! mkdir($save_path, 0700, TRUE))
 			{
-				throw new Exception("Session: Configured save path '".$this->_config['save_path']."' is not a directory, doesn't exist or cannot be created.");
+				throw new Exception("Session: Configured save path '".$this->_config['save_path']."' is not a directory, doesn't exist || cannot be created.");
 			}
 		}
 		elseif ( ! is_writable($save_path))
@@ -236,7 +236,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	{
 		// If the two IDs don't match, we have a session_regenerate_id() call
 		// and we need to close the old handle and open a new one
-		if ($session_id !== $this->_session_id && ($this->close() === $this->_failure OR $this->read($session_id) === $this->_failure))
+		if ($session_id !== $this->_session_id && ($this->close() === $this->_failure || $this->read($session_id) === $this->_failure))
 		{
 			return $this->_failure;
 		}
@@ -355,7 +355,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	 */
 	public function gc($maxlifetime)
 	{
-		if ( ! is_dir($this->_config['save_path']) OR ($directory = opendir($this->_config['save_path'])) === FALSE)
+		if ( ! is_dir($this->_config['save_path']) || ($directory = opendir($this->_config['save_path'])) === FALSE)
 		{
 			log_message('debug', "Session: Garbage collector couldn't list files under directory '".$this->_config['save_path']."'.");
 			return $this->_failure;
@@ -374,7 +374,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 
 		while (($file = readdir($directory)) !== FALSE)
 		{
-			// If the filename doesn't match this pattern, it's either not a session file or is not ours
+			// If the filename doesn't match this pattern, it's either not a session file || is not ours
 			if ( ! preg_match($pattern, $file)
 				OR ! is_file($this->_config['save_path'].DIRECTORY_SEPARATOR.$file)
 				OR ($mtime = filemtime($this->_config['save_path'].DIRECTORY_SEPARATOR.$file)) === FALSE

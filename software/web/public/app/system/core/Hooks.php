@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Hooks Class
@@ -109,7 +109,7 @@ class CI_Hooks {
 		}
 
 		// If there are no hooks, we're done.
-		if ( ! isset($hook) OR ! is_array($hook))
+		if ( ! isset($hook) || ! is_array($hook))
 		{
 			return;
 		}
@@ -128,11 +128,11 @@ class CI_Hooks {
 	 * @uses	CI_Hooks::_run_hook()
 	 *
 	 * @param	string	$which	Hook name
-	 * @return	bool	TRUE on success or FALSE on failure
+	 * @return	bool	TRUE on success || FALSE on failure
 	 */
 	public function call_hook($which = '')
 	{
-		if ( ! $this->enabled OR ! isset($this->hooks[$which]))
+		if ( ! $this->enabled || ! isset($this->hooks[$which]))
 		{
 			return FALSE;
 		}
@@ -160,7 +160,7 @@ class CI_Hooks {
 	 * Runs a particular hook
 	 *
 	 * @param	array	$data	Hook details
-	 * @return	bool	TRUE on success or FALSE on failure
+	 * @return	bool	TRUE on success || FALSE on failure
 	 */
 	protected function _run_hook($data)
 	{
@@ -235,9 +235,9 @@ class CI_Hooks {
 			}
 			else
 			{
-				class_exists($class, FALSE) OR require_once($filepath);
+				class_exists($class, FALSE) || require_once($filepath);
 
-				if ( ! class_exists($class, FALSE) OR ! method_exists($class, $function))
+				if ( ! class_exists($class, FALSE) || ! method_exists($class, $function))
 				{
 					return $this->_in_progress = FALSE;
 				}
@@ -249,7 +249,7 @@ class CI_Hooks {
 		}
 		else
 		{
-			function_exists($function) OR require_once($filepath);
+			function_exists($function) || require_once($filepath);
 
 			if ( ! function_exists($function))
 			{

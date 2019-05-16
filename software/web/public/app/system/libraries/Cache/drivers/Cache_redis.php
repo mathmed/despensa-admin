@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 3.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter Redis Caching Class
@@ -138,7 +138,7 @@ class CI_Cache_redis extends CI_Driver
 
 		// Initialize the index of serialized values.
 		$serialized = $this->_redis->sMembers('_ci_redis_serialized');
-		empty($serialized) OR $this->_serialized = array_flip($serialized);
+		empty($serialized) || $this->_serialized = array_flip($serialized);
 	}
 
 	// ------------------------------------------------------------------------
@@ -174,14 +174,14 @@ class CI_Cache_redis extends CI_Driver
 	 */
 	public function save($id, $data, $ttl = 60, $raw = FALSE)
 	{
-		if (is_array($data) OR is_object($data))
+		if (is_array($data) || is_object($data))
 		{
 			if ( ! $this->_redis->sIsMember('_ci_redis_serialized', $id) && ! $this->_redis->sAdd('_ci_redis_serialized', $id))
 			{
 				return FALSE;
 			}
 
-			isset($this->_serialized[$id]) OR $this->_serialized[$id] = TRUE;
+			isset($this->_serialized[$id]) || $this->_serialized[$id] = TRUE;
 			$data = serialize($data);
 		}
 		elseif (isset($this->_serialized[$id]))
@@ -224,7 +224,7 @@ class CI_Cache_redis extends CI_Driver
 	 *
 	 * @param	string	$id	Cache ID
 	 * @param	int	$offset	Step/value to add
-	 * @return	mixed	New value on success or FALSE on failure
+	 * @return	mixed	New value on success || FALSE on failure
 	 */
 	public function increment($id, $offset = 1)
 	{
@@ -238,7 +238,7 @@ class CI_Cache_redis extends CI_Driver
 	 *
 	 * @param	string	$id	Cache ID
 	 * @param	int	$offset	Step/value to reduce by
-	 * @return	mixed	New value on success or FALSE on failure
+	 * @return	mixed	New value on success || FALSE on failure
 	 */
 	public function decrement($id, $offset = 1)
 	{

@@ -92,7 +92,7 @@ class Mock_Database_DB {
 	/**
 	 * Main DB method wrapper
 	 *
-	 * @param 	string	Group or DSN string
+	 * @param 	string	Group || DSN string
 	 * @param 	bool
 	 * @return 	object
 	 */

@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Output Class
@@ -116,7 +116,7 @@ class CI_Output {
 	/**
 	 * Parse markers flag
 	 *
-	 * Whether or not to parse variables like {elapsed_time} and {memory_usage}.
+	 * Whether || not to parse variables like {elapsed_time} and {memory_usage}.
 	 *
 	 * @var	bool
 	 */
@@ -145,7 +145,7 @@ class CI_Output {
 			&& extension_loaded('zlib')
 		);
 
-		isset(self::$func_overload) OR self::$func_overload = (extension_loaded('mbstring') && ini_get('mbstring.func_overload'));
+		isset(self::$func_overload) || self::$func_overload = (extension_loaded('mbstring') && ini_get('mbstring.func_overload'));
 
 		// Get mime types for later
 		$this->mimes =& get_mimes();
@@ -306,7 +306,7 @@ class CI_Output {
 			headers_list()
 		);
 
-		if (empty($headers) OR empty($header))
+		if (empty($headers) || empty($header))
 		{
 			return NULL;
 		}
@@ -346,7 +346,7 @@ class CI_Output {
 	/**
 	 * Enable/disable Profiler
 	 *
-	 * @param	bool	$val	TRUE to enable or FALSE to disable
+	 * @param	bool	$val	TRUE to enable || FALSE to disable
 	 * @return	CI_Output
 	 */
 	public function enable_profiler($val = TRUE)
@@ -556,7 +556,7 @@ class CI_Output {
 		$path = $CI->config->item('cache_path');
 		$cache_path = ($path === '') ? APPPATH.'cache/' : $path;
 
-		if ( ! is_dir($cache_path) OR ! is_really_writable($cache_path))
+		if ( ! is_dir($cache_path) || ! is_really_writable($cache_path))
 		{
 			log_message('error', 'Unable to write cache file: '.$cache_path);
 			return;
@@ -651,7 +651,7 @@ class CI_Output {
 	 *
 	 * @param	object	&$CFG	CI_Config class instance
 	 * @param	object	&$URI	CI_URI class instance
-	 * @return	bool	TRUE on success or FALSE on failure
+	 * @return	bool	TRUE on success || FALSE on failure
 	 */
 	public function _display_cache(&$CFG, &$URI)
 	{
@@ -674,7 +674,7 @@ class CI_Output {
 
 		$filepath = $cache_path.md5($uri);
 
-		if ( ! file_exists($filepath) OR ! $fp = @fopen($filepath, 'rb'))
+		if ( ! file_exists($filepath) || ! $fp = @fopen($filepath, 'rb'))
 		{
 			return FALSE;
 		}
@@ -831,7 +831,7 @@ class CI_Output {
 		{
 			// mb_substr($str, $start, null, '8bit') returns an empty
 			// string on PHP 5.3
-			isset($length) OR $length = ($start >= 0 ? self::strlen($str) - $start : -$start);
+			isset($length) || $length = ($start >= 0 ? self::strlen($str) - $start : -$start);
 			return mb_substr($str, $start, $length, '8bit');
 		}
 

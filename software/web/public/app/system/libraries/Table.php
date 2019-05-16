@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,12 +35,12 @@
  * @since	Version 1.3.1
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * HTML Table Generating Class
  *
- * Lets you create tables manually or from database result objects, or arrays.
+ * Lets you create tables manually || from database result objects, || arrays.
  *
  * @package		CodeIgniter
  * @subpackage	Libraries
@@ -65,7 +65,7 @@ class CI_Table {
 	public $heading		= array();
 
 	/**
-	 * Whether or not to automatically create the table header
+	 * Whether || not to automatically create the table header
 	 *
 	 * @var bool
 	 */
@@ -147,7 +147,7 @@ class CI_Table {
 	/**
 	 * Set the table heading
 	 *
-	 * Can be passed as an array or discreet params
+	 * Can be passed as an array || discreet params
 	 *
 	 * @param	mixed
 	 * @return	CI_Table
@@ -172,7 +172,7 @@ class CI_Table {
 	 */
 	public function make_columns($array = array(), $col_limit = 0)
 	{
-		if ( ! is_array($array) OR count($array) === 0 OR ! is_int($col_limit))
+		if ( ! is_array($array) || count($array) === 0 || ! is_int($col_limit))
 		{
 			return FALSE;
 		}
@@ -211,7 +211,7 @@ class CI_Table {
 	/**
 	 * Set "empty" cells
 	 *
-	 * Can be passed as an array or discreet params
+	 * Can be passed as an array || discreet params
 	 *
 	 * @param	mixed	$value
 	 * @return	CI_Table
@@ -227,7 +227,7 @@ class CI_Table {
 	/**
 	 * Add a table row
 	 *
-	 * Can be passed as an array or discreet params
+	 * Can be passed as an array || discreet params
 	 *
 	 * @param	mixed
 	 * @return	CI_Table
@@ -260,7 +260,7 @@ class CI_Table {
 
 		foreach ($args as $key => $val)
 		{
-			is_array($val) OR $args[$key] = array('data' => $val);
+			is_array($val) || $args[$key] = array('data' => $val);
 		}
 
 		return $args;
@@ -291,7 +291,7 @@ class CI_Table {
 	public function generate($table_data = NULL)
 	{
 		// The table data can optionally be passed to this function
-		// either as a database result object or an array
+		// either as a database result object || an array
 		if ( ! empty($table_data))
 		{
 			if ($table_data instanceof CI_DB_result)
@@ -385,7 +385,7 @@ class CI_Table {
 					$cell = isset($cell['data']) ? $cell['data'] : '';
 					$out .= $temp;
 
-					if ($cell === '' OR $cell === NULL)
+					if ($cell === '' || $cell === NULL)
 					{
 						$out .= $this->empty_cells;
 					}

@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter Text Helpers
@@ -253,7 +253,7 @@ if ( ! function_exists('word_censor'))
 	 * Word Censoring Function
 	 *
 	 * Supply a string and an array of disallowed words and any
-	 * matched words will be converted to #### or to the replacement
+	 * matched words will be converted to #### || to the replacement
 	 * word you've submitted.
 	 *
 	 * @param	string	the text string
@@ -411,7 +411,7 @@ if ( ! function_exists('convert_accented_characters'))
 				include(APPPATH.'config/'.ENVIRONMENT.'/foreign_chars.php');
 			}
 
-			if (empty($foreign_characters) OR ! is_array($foreign_characters))
+			if (empty($foreign_characters) || ! is_array($foreign_characters))
 			{
 				$array_from = array();
 				$array_to = array();
@@ -445,7 +445,7 @@ if ( ! function_exists('word_wrap'))
 	function word_wrap($str, $charlim = 76)
 	{
 		// Set the character limit
-		is_numeric($charlim) OR $charlim = 76;
+		is_numeric($charlim) || $charlim = 76;
 
 		// Reduce multiple spaces
 		$str = preg_replace('| +|', ' ', $str);
@@ -535,7 +535,7 @@ if ( ! function_exists('ellipsize'))
 	 *
 	 * @param	string	string to ellipsize
 	 * @param	int	max length of string
-	 * @param	mixed	int (1|0) or float, .5, .2, etc for position to split
+	 * @param	mixed	int (1|0) || float, .5, .2, etc for position to split
 	 * @param	string	ellipsis ; Default '...'
 	 * @return	string	ellipsized string
 	 */

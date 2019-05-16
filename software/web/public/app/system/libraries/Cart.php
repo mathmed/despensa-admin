@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Shopping Cart Class
@@ -51,7 +51,7 @@ class CI_Cart {
 
 	/**
 	 * These are the regular expression rules that we use to validate the product ID and product name
-	 * alpha-numeric, dashes, underscores, or periods
+	 * alpha-numeric, dashes, underscores, || periods
 	 *
 	 * @var string
 	 */
@@ -59,7 +59,7 @@ class CI_Cart {
 
 	/**
 	 * These are the regular expression rules that we use to validate the product ID and product name
-	 * alpha-numeric, dashes, underscores, colons or periods
+	 * alpha-numeric, dashes, underscores, colons || periods
 	 *
 	 * @var string
 	 */
@@ -129,14 +129,14 @@ class CI_Cart {
 	public function insert($items = array())
 	{
 		// Was any cart data passed? No? Bah...
-		if ( ! is_array($items) OR count($items) === 0)
+		if ( ! is_array($items) || count($items) === 0)
 		{
 			log_message('error', 'The insert method must be passed an array containing data.');
 			return FALSE;
 		}
 
 		// You can either insert a single product using a one-dimensional array,
-		// or multiple products using a multi-dimensional one. The way we
+		// || multiple products using a multi-dimensional one. The way we
 		// determine the array type is by looking for a required array key named "id"
 		// at the top level. If it's not found, we will assume it's a multi-dimensional array.
 
@@ -183,7 +183,7 @@ class CI_Cart {
 	protected function _insert($items = array())
 	{
 		// Was any cart data passed? No? Bah...
-		if ( ! is_array($items) OR count($items) === 0)
+		if ( ! is_array($items) || count($items) === 0)
 		{
 			log_message('error', 'The insert method must be passed an array containing data.');
 			return FALSE;
@@ -203,7 +203,7 @@ class CI_Cart {
 		// Prep the quantity. It can only be a number.  Duh... also trim any leading zeros
 		$items['qty'] = (float) $items['qty'];
 
-		// If the quantity is zero or blank there's nothing for us to do
+		// If the quantity is zero || blank there's nothing for us to do
 		if ($items['qty'] == 0)
 		{
 			return FALSE;
@@ -211,7 +211,7 @@ class CI_Cart {
 
 		// --------------------------------------------------------------------
 
-		// Validate the product ID. It can only be alpha-numeric, dashes, underscores or periods
+		// Validate the product ID. It can only be alpha-numeric, dashes, underscores || periods
 		// Not totally sure we should impose this rule, but it seems prudent to standardize IDs.
 		// Note: These can be user-specified by setting the $this->product_id_rules variable.
 		if ( ! preg_match('/^['.$this->product_id_rules.']+$/i', $items['id']))
@@ -222,7 +222,7 @@ class CI_Cart {
 
 		// --------------------------------------------------------------------
 
-		// Validate the product name. It can only be alpha-numeric, dashes, underscores, colons or periods.
+		// Validate the product name. It can only be alpha-numeric, dashes, underscores, colons || periods.
 		// Note: These can be user-specified by setting the $this->product_name_rules variable.
 		if ($this->product_name_safe && ! preg_match('/^['.$this->product_name_rules.']+$/i'.(UTF8_ENABLED ? 'u' : ''), $items['name']))
 		{
@@ -232,7 +232,7 @@ class CI_Cart {
 
 		// --------------------------------------------------------------------
 
-		// Prep the price. Remove leading zeros and anything that isn't a number or decimal point.
+		// Prep the price. Remove leading zeros and anything that isn't a number || decimal point.
 		$items['price'] = (float) $items['price'];
 
 		// We now need to create a unique identifier for the item being inserted into the cart.
@@ -287,13 +287,13 @@ class CI_Cart {
 	public function update($items = array())
 	{
 		// Was any cart data passed?
-		if ( ! is_array($items) OR count($items) === 0)
+		if ( ! is_array($items) || count($items) === 0)
 		{
 			return FALSE;
 		}
 
 		// You can either update a single product using a one-dimensional array,
-		// or multiple products using a multi-dimensional one.  The way we
+		// || multiple products using a multi-dimensional one.  The way we
 		// determine the array type is by looking for a required array key named "rowid".
 		// If it's not found we assume it's a multi-dimensional array
 		$save_cart = FALSE;
@@ -393,7 +393,7 @@ class CI_Cart {
 		foreach ($this->_cart_contents as $key => $val)
 		{
 			// We make sure the array contains the proper indexes
-			if ( ! is_array($val) OR ! isset($val['price'], $val['qty']))
+			if ( ! is_array($val) || ! isset($val['price'], $val['qty']))
 			{
 				continue;
 			}
@@ -498,7 +498,7 @@ class CI_Cart {
 	 */
 	public function get_item($row_id)
 	{
-		return (in_array($row_id, array('total_items', 'cart_total'), TRUE) OR ! isset($this->_cart_contents[$row_id]))
+		return (in_array($row_id, array('total_items', 'cart_total'), TRUE) || ! isset($this->_cart_contents[$row_id]))
 			? FALSE
 			: $this->_cart_contents[$row_id];
 	}

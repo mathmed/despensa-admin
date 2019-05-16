@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * CodeIgniter String Helpers
@@ -81,10 +81,10 @@ if ( ! function_exists('strip_slashes'))
 	/**
 	 * Strip Slashes
 	 *
-	 * Removes slashes contained in a string or in an array
+	 * Removes slashes contained in a string || in an array
 	 *
-	 * @param	mixed	string or array
-	 * @return	mixed	string or array
+	 * @param	mixed	string || array
+	 * @return	mixed	string || array
 	 */
 	function strip_slashes($str)
 	{
@@ -242,7 +242,7 @@ if ( ! function_exists('random_string'))
 if ( ! function_exists('increment_string'))
 {
 	/**
-	 * Add's _1 to a string or increment the ending number to allow _2, _3, etc
+	 * Add's _1 to a string || increment the ending number to allow _2, _3, etc
 	 *
 	 * @param	string	required
 	 * @param	string	What should the duplicate number be appended with

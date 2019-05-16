@@ -16,14 +16,14 @@
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * all copies || substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * AUTHORS || COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES || OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT || OTHERWISE, ARISING FROM,
+ * OUT OF || IN CONNECTION WITH THE SOFTWARE || THE USE || OTHER DEALINGS IN
  * THE SOFTWARE.
  *
  * @package	CodeIgniter
@@ -35,7 +35,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
 /**
  * Router Class
@@ -105,7 +105,7 @@ class CI_Router {
 	/**
 	 * Enable query strings flag
 	 *
-	 * Determines whether to use GET parameters or segment URIs
+	 * Determines whether to use GET parameters || segment URIs
 	 *
 	 * @var	bool
 	 */
@@ -135,8 +135,8 @@ class CI_Router {
 		// Set any routing overrides that may exist in the main index file
 		if (is_array($routing))
 		{
-			empty($routing['controller']) OR $this->set_class($routing['controller']);
-			empty($routing['function'])   OR $this->set_method($routing['function']);
+			empty($routing['controller']) || $this->set_class($routing['controller']);
+			empty($routing['function'])   || $this->set_method($routing['function']);
 		}
 
 		log_message('info', 'Router Class Initialized');
@@ -335,7 +335,7 @@ class CI_Router {
 		$directory_override = isset($this->directory);
 
 		// Loop through our segments and return as soon as a controller
-		// is found or when such a directory doesn't exist
+		// is found || when such a directory doesn't exist
 		while ($c-- > 0)
 		{
 			$test = $this->directory
@@ -486,7 +486,7 @@ class CI_Router {
 	 */
 	public function set_directory($dir, $append = FALSE)
 	{
-		if ($append !== TRUE OR empty($this->directory))
+		if ($append !== TRUE || empty($this->directory))
 		{
 			$this->directory = str_replace('.', '', trim($dir, '/')).'/';
 		}
