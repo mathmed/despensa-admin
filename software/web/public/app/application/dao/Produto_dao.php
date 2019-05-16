@@ -24,4 +24,9 @@ class Produto_dao extends MY_Dao {
         $resultado = $this->db->get()->result_object();
         return $resultado;
     }
+
+    public function excluir_produto($id){
+        $this->db->where("uid", $id);
+        $this->db->delete("Produto");
+    }
 }

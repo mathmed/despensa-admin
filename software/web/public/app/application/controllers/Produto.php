@@ -21,4 +21,10 @@ class Produto extends CI_Controller {
 		$this->produto_business->cadastrar_produto($this->produto_model);
 	}
 
+	public function excluir_produto(){
+		$dados = $this->obj;
+		$this->produto_business->excluir_produto($dados["id"]);
+
+	}
+
 }
