@@ -12,7 +12,7 @@ class Produto_dao extends MY_Dao {
         $this->db->insert("Produto", $dados);
     }
 
-    public function get_produto(){
+    public function get_produto($filtros){
         if(!empty($filtros)){
             foreach($filtros as $filtro){
                 $this->db->where($filtro["campo"], $filtro["valor"]);

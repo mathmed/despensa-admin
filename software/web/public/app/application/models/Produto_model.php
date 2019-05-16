@@ -97,7 +97,7 @@ class Produto_model extends CI_Model{
         return $this->validade;
     }
 
-    public function set_validade(){
+    public function set_validade($validade = NULL){
         $this->validade = $validade;
     }
 
@@ -105,7 +105,7 @@ class Produto_model extends CI_Model{
         return $this->quantidade;
     }
 
-    public function set_quantidade(){
+    public function set_quantidade($quantidade = NULL){
         $this->quantidade = $quantidade;
     }
 }
