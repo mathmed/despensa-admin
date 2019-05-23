@@ -13,6 +13,7 @@ class Produto_model extends CI_Model{
     public $uid_categoria; 
     public $validade;
     public $quantidade;
+    public $unidade;
 
     public function __construct($dados = NULL){
         $this->uid = isset($dados["uid"]) ? $dados["uid"] : NULL;
@@ -25,6 +26,7 @@ class Produto_model extends CI_Model{
         $this->uid_categoria = isset($dados["uid_categoria"]) ? $dados["uid_categoria"] : NULL;
         $this->validade = isset($dados["validade"]) ? $dados["validade"] : NULL;
         $this->quantidade = isset($dados["quantidade"]) ? $dados["quantidade"] : NULL;
+        $this->unidade = isset($dados["unidade"]) ? $dados["unidade"] : NULL;
 
 
     }
@@ -107,6 +109,14 @@ class Produto_model extends CI_Model{
 
     public function set_quantidade($quantidade = NULL){
         $this->quantidade = $quantidade;
+    }
+
+    public function get_unidade(){
+        return $this->unidade;
+    }
+
+    public function set_unidade($unidade = NULL){
+        $this->unidade = $unidade;
     }
 }
 
