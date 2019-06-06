@@ -12,7 +12,7 @@ class Produto_dao extends MY_Dao {
         $this->db->insert("Produto", $dados);
     }
 
-    public function get_produto($filtros){
+    public function get_produto($filtros = null){
         if(!empty($filtros)){
             foreach($filtros as $filtro){
                 $this->db->where($filtro["campo"], $filtro["valor"]);
@@ -26,7 +26,7 @@ class Produto_dao extends MY_Dao {
     }
 
     public function excluir_produto($id){
-        $this->db->where("uid", $id);
+        $this->db->where("id", $id);
         $this->db->delete("Produto");
     }
 }

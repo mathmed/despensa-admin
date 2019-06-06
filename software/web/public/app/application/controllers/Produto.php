@@ -24,7 +24,12 @@ class Produto extends CI_Controller {
 	public function excluir_produto(){
 		$dados = $this->obj;
 		$this->produto_business->excluir_produto($dados["id"]);
-
 	}
+
+	public function listar_produto(){
+		$dados = $this->obj;
+		$this->produto_business->listar_produto($dados["id_despensa"]);
+	}
+	
 
 }

@@ -14,11 +14,16 @@ class Produto_business extends MY_Business {
 
     public function excluir_produto($id){
         if($id){
-            if($this->produto_dao->get_produto([["campo"=>"uid", "valor"=>$id]]))
+            if($this->produto_dao->get_produto([["campo"=>"id", "valor"=>$id]]))
                 $this->produto_dao->excluir_produto($id);
         }
     }
- 
+
+    public function listar_produto($id_despensa){
+        $resultado = $this->produto_dao->get_produto([["campo"=>"uid_despensa", "valor"=>$id_despensa]]);
+        print_r($resultado);
+    }
+
 }
 
 ?>

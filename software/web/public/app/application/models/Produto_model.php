@@ -3,7 +3,7 @@
 defined('BASEPATH') || exit('No direct script access allowed');
 
 class Produto_model extends CI_Model{
-    public $uid;
+    public $id;
     public $nome;
     public $status_;
     public $preco;
@@ -16,7 +16,7 @@ class Produto_model extends CI_Model{
     public $unidade;
 
     public function __construct($dados = NULL){
-        $this->uid = isset($dados["uid"]) ? $dados["uid"] : NULL;
+        $this->id = isset($dados["id"]) ? $dados["id"] : NULL;
         $this->nome = isset($dados["nome"]) ? $dados["nome"] : NULL;
         $this->status_ = isset($dados["status_"]) ? $dados["status_"] : NULL;
         $this->preco = isset($dados["preco"]) ? $dados["preco"] : NULL;
@@ -32,11 +32,11 @@ class Produto_model extends CI_Model{
     }
 
     public function get_uid(){
-        return $this->uid;
+        return $this->id;
     }
 
     public function set_uid($uid = NULL){
-        $this->uid = $uid;
+        $this->uid = $id;
     }
 
     public function get_nome(){
