@@ -24,4 +24,9 @@ class Fornecedor extends CI_Controller {
 		$this->fornecedor_business->excluir_fornecedor($dados["id"]);
 	}
 
+	public function listar_fornecedor(){
+		$dados = $this->obj;
+		$this->fornecedor_business->listar_fornecedor($dados["id_usuario"]);
+	}
+
 }

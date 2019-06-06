@@ -13,13 +13,13 @@ class Fornecedor_dao extends MY_Dao {
     }
 
 
-    public function get_fornecedor($filtros){
+    public function get_fornecedor($filtros = null){
         if(!empty($filtros)){
             foreach($filtros as $filtro){
                 $this->db->where($filtro["campo"], $filtro["valor"]);
             }
         }    
-        $this->db->select("*");
+        $this->db->select("Fornecedor.id, Fornecedor.descricao");
         $this->db->from("Fornecedor");
         $this->db->join("Usuario","Usuario.uid = Fornecedor.uid_usuario");
         $resultado = $this->db->get()->result_object();
