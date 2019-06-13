@@ -20,7 +20,7 @@ class Fornecedor_business extends MY_Business {
 
     public function listar_fornecedor($id_usuario){
         $resultado = $this->fornecedor_dao->get_fornecedor([["campo"=>"uid_usuario", "valor"=>$id_usuario]]);
-        print_r($resultado);
+        echo json_encode($resultado);
     }
 
     public function excluir_fornecedor($id){
