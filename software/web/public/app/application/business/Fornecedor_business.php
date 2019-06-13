@@ -10,10 +10,12 @@ class Fornecedor_business extends MY_Business {
     }
 
     public function cadastrar_fornecedor($dados){
-        if($this->fornecedor_dao->get_fornecedor([["campo"=>"descricao", "valor"=>$dados->descricao]]))
-            echo (json_encode("Fornecedor já existe"));
-        else
+        if($this->fornecedor_dao->get_fornecedor([["campo"=>"descricao", "valor"=>$dados->descricao], ["campo"=>"uid_usuario", "valor"=>$dados->uid_usuario]]))
+            echo (json_encode("erro"));
+        else{
             $this->fornecedor_dao->cadastrar_fornecedor($dados);
+            echo json_encode("sucesso");
+        }
     }
 
     public function listar_fornecedor($id_usuario){
