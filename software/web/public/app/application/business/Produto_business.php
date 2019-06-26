@@ -10,6 +10,7 @@ class Produto_business extends MY_Business {
 
     public function cadastrar_produto($dados){
         $this->produto_dao->cadastrar_produto($dados);
+        echo json_encode("sucesso");
     }
 
     public function excluir_produto($id){
@@ -21,7 +22,7 @@ class Produto_business extends MY_Business {
 
     public function listar_produto($id_despensa){
         $resultado = $this->produto_dao->get_produto([["campo"=>"uid_despensa", "valor"=>$id_despensa]]);
-        print_r($resultado);
+        echo json_encode($resultado);
     }
 
 }
