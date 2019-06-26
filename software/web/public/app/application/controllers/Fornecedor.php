@@ -29,4 +29,9 @@ class Fornecedor extends CI_Controller {
 		$this->fornecedor_business->listar_fornecedor($dados["id_usuario"]);
 	}
 
+	public function atualizar_fornecedor(){
+		$dados = $this->obj;
+		$this->fornecedor_business->atualizar_fornecedor($dados);
+	}
+
 }

@@ -9,6 +9,11 @@ class Fornecedor_business extends MY_Business {
 
     }
 
+    public function atualizar_fornecedor($dados){
+
+
+    }
+
     public function cadastrar_fornecedor($dados){
         if($this->fornecedor_dao->get_fornecedor([["campo"=>"descricao", "valor"=>$dados->descricao], ["campo"=>"uid_usuario", "valor"=>$dados->uid_usuario]]))
             echo (json_encode("erro"));
@@ -25,8 +30,12 @@ class Fornecedor_business extends MY_Business {
 
     public function excluir_fornecedor($id){
         if($id){
-            if($this->fornecedor_dao->get_fornecedor([["campo"=>"id", "valor"=>$id]]))
+            if($this->fornecedor_dao->get_fornecedor([["campo"=>"id", "valor"=>$id]])){
                 $this->fornecedor_dao->excluir_fornecedor($id);
+                
+                echo json_encode("sucesso");
+
+            } else json_encode("erro");
         }    
     }
 

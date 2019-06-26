@@ -11,7 +11,10 @@ class Fornecedor_dao extends MY_Dao {
     public function cadastrar_fornecedor($dados){
         $this->db->insert("Fornecedor", $dados);
     }
-
+    
+    public function atualizar_fornecedor($dados){
+        
+    }
 
     public function get_fornecedor($filtros = null){
         if(!empty($filtros)){
